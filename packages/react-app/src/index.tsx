@@ -4,13 +4,9 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-
-// import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-// import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import { cssTransition, toast } from 'react-toastify';
-
 import Root from 'app/Root';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,11 +29,6 @@ toast.configure({
     }),
 });
 
-
-
-// ReactDOM.render(<Root />, document.getElementById('root'));
-
-
 const colors = {
     brand: {
     50: "#ecefff",
@@ -50,7 +41,7 @@ const colors = {
     700: "#2a2f57",
     800: "#181c37",
     900: "#080819"
-  }
+    }
 };
 const config = {
     initialColorMode: "dark",
