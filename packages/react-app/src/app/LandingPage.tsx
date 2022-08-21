@@ -21,6 +21,7 @@ import {
     AiFillHome,
     AiOutlineMenu,
 } from "react-icons/ai";
+import { Link as ReachLink } from 'react-router-dom';
 import logoPng from '../images/logo.png';
 import appPng from '../images/app.png';
 import savePng from '../images/savetowin.png';
@@ -65,19 +66,8 @@ export default function PandingPage(){
             onClick={mobileNav.onClose}
         />
         <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-            Dashboard
+            <Link as={ReachLink} to="/">Start</Link> 
         </Button>
-        {/* <Button
-            w="full"
-            variant="solid"
-            colorScheme="brand"
-            leftIcon={<AiOutlineInbox />}
-        >
-            Inbox
-        </Button>
-        <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
-            Videos
-        </Button> */}
     </VStack>
     );
 
@@ -93,7 +83,7 @@ export default function PandingPage(){
     <chakra.div mt={6} h="4.5rem" mx="auto" maxW="1200px">
         <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
-            <Link href="/">
+                <Link as={ReachLink} to="/">
             <HStack>
                 <Image  src={logoPng} alt='Logo' />
             </HStack>
@@ -119,12 +109,10 @@ export default function PandingPage(){
             <Link isExternal href="#"> 
                 <Text fontSize='lg' fontWeight="bold" > Join us </Text>
             </Link>
-
             <Link isExternal href="#"> 
                 <Text fontSize='lg' fontWeight="bold" > White Paper </Text>
             </Link>
-
-            <Link href="/">
+            <Link isExternal href="/app">
                 <Image  mt={6} src={appPng} alt='App' />
             </Link>
         </HStack>
@@ -195,7 +183,9 @@ export default function PandingPage(){
                 spacing={2}
             >
             <Box w='400px'  color='white'>
-                <Image w='100%' h="80px" src={startPng} alt='Start To Win' />
+                <Link  href="/app">
+                    <Image w='100%' h="80px" src={startPng} alt='Start To Win' />
+                </Link>
             </Box>
             </Stack>
             </Box>

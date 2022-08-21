@@ -11,7 +11,7 @@ const routing = (
     <ConnectedRouter history={history}>
         <Switch>
             <Route exact path="/" component={LandingPage} />
-            {/* <Route exact path="/" component={AppHome} /> */}
+            <Route exact path="/app" component={AppHome} />
             <Route exact path="/allpools" component={App} />
             <Route exact path="/winners" component={App} />
             <Route exact path="/mypool" component={App} />
