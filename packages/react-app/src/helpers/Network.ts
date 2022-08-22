@@ -9,6 +9,8 @@ import {
     ROPSTEN_NETWORK_ID,
 } from 'Constants';
 
+const providerURL = "https://kovan.infura.io/v3/805b472e5450481eae7e66caba31a373"
+
 export const isMainNetwork = (networkId: number) => networkId === MAINNET_NETWORK_ID;
 export const isRopstenNetwork = (networkId: number) => networkId === ROPSTEN_NETWORK_ID;
 export const isKovanNetwork = (networkId: number) => networkId === KOVAN_NETWORK_ID;
@@ -25,19 +27,22 @@ export const getEtherscanUrl = (networkId: number, type: string, hash: string) =
 export const getProvider = (networkId: number) => {
     if (isMainNetwork(networkId)) {
         return new ethers.providers.JsonRpcProvider(
-            process.env.REACT_APP_ALCHEMY_MAINNET_PROVIDER,
+            // process.env.REACT_APP_ALCHEMY_MAINNET_PROVIDER,
+            providerURL,
         ) as providers.Provider;
     }
 
     if (isLocalNetwork(networkId)) {
         return new ethers.providers.JsonRpcProvider(
-            process.env.REACT_APP_LOCAL_PROVIDER,
+            // process.env.REACT_APP_LOCAL_PROVIDER,
+            providerURL,
         ) as providers.Provider;
     }
 
     // We return Ropsten provider by default
     return new ethers.providers.JsonRpcProvider(
-        process.env.REACT_APP_ALCHEMY_ROPSTEN_PROVIDER,
+        // process.env.REACT_APP_ALCHEMY_ROPSTEN_PROVIDER,
+        providerURL,
     ) as providers.Provider;
 };
 

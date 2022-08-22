@@ -9,10 +9,18 @@ import { NetworkConnector } from '@web3-react/network-connector';
 import { SUPPORTED_CHAIN_IDS } from 'Constants';
 import { Web3ReactContextInterface } from 'types/web3-react';
 
+const providerURL = "https://kovan.infura.io/v3/805b472e5450481eae7e66caba31a373"
+
+
+// const RPC_URLS: { [chainId: number]: string } = {
+//     1: process.env.REACT_APP_INFURA_MAINNET_PROVIDER as string,
+//     42: process.env.REACT_APP_INFURA_KOVAN_PROVIDER as string,
+//     1337: process.env.REACT_APP_LOCAL_PROVIDER as string,
+// };
 const RPC_URLS: { [chainId: number]: string } = {
-    1: process.env.REACT_APP_INFURA_MAINNET_PROVIDER as string,
-    42: process.env.REACT_APP_INFURA_KOVAN_PROVIDER as string,
-    1337: process.env.REACT_APP_LOCAL_PROVIDER as string,
+    1: providerURL as string,
+    42: providerURL as string,
+    1337: providerURL as string,
 };
 
 const network = new NetworkConnector({
