@@ -276,7 +276,7 @@ export default function Pools(){
                       py={1}
                     >
                       HIGH-RISK Pool D
-                    </Badge>
+                    </Badge>  
                     <Text
                       mb={2}
                       fontSize="3xl"

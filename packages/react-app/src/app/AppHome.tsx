@@ -14,47 +14,19 @@ import pools from '../images/pools.png';
 import my from '../images/my.png';
 import setting from '../images/setting.png';
 import winners from '../images/winners.png';
-import logoPng from '../images/logo.png';
 import sidebarPng from '../images/sidebar.png';
-import usdc from '../images/usdc.png';
-import connect from '../images/connect.png';
-import profile from '../images/profile.png';
 import logout from '../images/logout.png';
-
+import AppHeader from './AppHeader';
+import Modal, { useModal } from 'components/Modal';
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import RenderJoinModal from 'components/Modal/RenderJoin';
 
   export default function AppHome(props:any){
     const { Content  } = props;
 
     const color = useColorModeValue("gray.600", "gray.300");
   
-    const Header = (props:any) => {
-      
-      return(<chakra.header
-              transition="box-shadow 0.2s"
-              borderTopColor="brand.400"
-              w="full"
-              overflowY="hidden">
-              <chakra.div mt={8} h="4.5rem" mx="auto" maxW="1200px">
-                  <Flex w="full" h="16" px="10" align="center" justify="space-between">
-                      <Flex align="center">
-                      <HStack>
-                          <Image h="14" w="full" src={logoPng} alt='Logo' />
-                      </HStack>
-                      <HStack ml={5}>
-                          <Image h="14" w="full"  src={usdc} alt='USDC' />
-                      </HStack>
-                      <HStack ml={5}>
-                          <Image h="16" mt="3" src={connect} alt='Connect' />
-                      </HStack>
-                      <HStack ml={5}>
-                          <Image h="14" src={profile} alt='Profile' />
-                      </HStack>
-                  </Flex>
-                  
-  </Flex>
-  </chakra.div>
-  </chakra.header>)
-  };
 
     const NavItem = (props:any) => {
       const { icon, children, ...rest } = props;
@@ -169,11 +141,27 @@ import logout from '../images/logout.png';
     
     );
 
+
+    const { active: walletConnected } = useWeb3React<Web3Provider>();
+    const { modalIsOpen: walletModalIsOpen, toggleModal: toggleWalletModal } = useModal();
+    const { modalIsOpen: joinModalIsOpen, toggleModal: toggleJoinModal } = useModal();
+    const { modalIsOpen: withdrawModalIsOpen, toggleModal: toggleWithdrawModal } = useModal();
+
     return (
       <Box as="section"  >
         <SidebarContent display={{ base: "none", md: "unset" }} />
-        <Header />
-        <Content />
+        <AppHeader />
+        <Content 
+            toggleJoinModal={toggleJoinModal}
+            toggleWithdrawModal={toggleWithdrawModal}
+            toggleWalletModal={toggleWalletModal}
+            walletModalIsOpen={walletModalIsOpen} />
+
+        <Modal
+                component={RenderJoinModal}
+                isOpen={joinModalIsOpen}
+                toggleModal={toggleJoinModal}
+            />
         <SidebarRight />
       </Box>
     );

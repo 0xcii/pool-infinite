@@ -123,10 +123,11 @@ const ToggleWalletModalButton: React.FC<HeaderProps> = ({ toggleWalletModal }): 
 const Header: React.FC<HeaderProps> = ({ toggleWalletModal }) => {
     return (
         <div>
-            <StyledPageHeader
+            <ToggleWalletModalButton key="1" toggleWalletModal={toggleWalletModal} />
+            {/* <StyledPageHeader
                 title={<Title />}
                 extra={[<ToggleWalletModalButton key="1" toggleWalletModal={toggleWalletModal} />]}
-            />
+            /> */}
         </div>
     );
 };

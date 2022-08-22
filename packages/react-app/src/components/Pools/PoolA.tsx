@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import {
     chakra,
     Box,
@@ -8,7 +8,85 @@ import {
     Button
 } from "@chakra-ui/react";
 
-export default function PoolA(){
+
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import moment from 'moment';
+import momentDurationFormatSetup from 'moment-duration-format';
+import { rem } from 'polished';
+import styled from 'styled-components';
+
+import { getAavePoolPrize, getPrizePeriodRemainingSeconds } from 'helpers/Pool';
+import { useInterval } from 'hooks/useInterval';
+import Dai from 'images/Dai';
+import Trophy from 'images/Trophy';
+import { spacingUnit } from 'styles/variables';
+
+
+momentDurationFormatSetup(moment);
+
+
+export default function PoolA({
+  toggleJoinModal,
+  toggleWithdrawModal,
+  toggleWalletModal,
+  walletModalIsOpen,
+}){
+  const { account, active: walletConnected, chainId, library } = useWeb3React<Web3Provider>();
+
+  const [currentPrize, setCurrentPrize] = useState('');
+  const [mountedAt, setMountedAt] = useState(0);
+  const [secondsToPrizeAtMount, setSecondsToPrizeAtMount] = useState(0);
+  const [secondsRemainingNow, setSecondsRemainingNow] = useState('');
+
+  const setPrizePeriodRemainingSecondsAtMount = async () => {
+      const prizePeriodRemainingSeconds = await getPrizePeriodRemainingSeconds(chainId as number);
+      const formattedPrizePeriodRemainingSeconds = parseInt(
+          prizePeriodRemainingSeconds.toString(),
+          10,
+      );
+
+      setSecondsToPrizeAtMount(formattedPrizePeriodRemainingSeconds);
+      setMountedAt(parseInt((Date.now() / 1000).toString(), 10));
+  };
+  const getAsyncValues = async () => {
+      const { prizeInDai } = await getAavePoolPrize(
+          account as string,
+          chainId as number,
+          library,
+      );
+
+      setCurrentPrize(Number(prizeInDai).toFixed());
+  };
+  useEffect(() => {
+    if (walletConnected) {
+        getAsyncValues();
+        setPrizePeriodRemainingSecondsAtMount();
+
+        if (walletModalIsOpen) {
+            toggleWalletModal();
+        }
+    }
+}, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
+
+useInterval(() => {
+    const diffInSeconds = parseInt((Date.now() / 1000).toString(), 10) - mountedAt;
+    const remaining = secondsToPrizeAtMount - diffInSeconds;
+
+    setSecondsRemainingNow(
+        remaining <= 0
+            ? '0'
+            : moment.duration(remaining, 'seconds').format('d [days] [and] h:m:s [hours]'),
+    );
+}, 1000);
+
+const handleJoinAavePool = () => {
+    toggleJoinModal();
+};
+
+const handleWithdrawFromAavePool = () => {
+    toggleWithdrawModal();
+};
 
 return (
     <Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
@@ -65,6 +143,7 @@ return (
             type="submit"
             colorScheme="brand"
             cursor="pointer"
+            onClick={handleJoinAavePool}
           >
             Stake
           </Button>
