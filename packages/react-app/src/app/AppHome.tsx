@@ -1,37 +1,60 @@
 import {
-    Avatar,
     Box,
-    Collapse,
-    Drawer,
-    DrawerContent,
-    DrawerOverlay,
+    Image,
+    chakra,
     Flex,
     Icon,
-    IconButton,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    Text,
+    Link,
+    HStack,
     useColorModeValue,
-    useDisclosure,
   } from "@chakra-ui/react";
-  import { FaBell, FaClipboardCheck, FaRss } from "react-icons/fa";
-  import { AiFillGift } from "react-icons/ai";
-  import { BsGearFill } from "react-icons/bs";
-  import { FiMenu, FiSearch } from "react-icons/fi";
-  import { HiCode, HiCollection } from "react-icons/hi";
-  import { MdHome, MdKeyboardArrowRight } from "react-icons/md";
-  import React from "react";
-  import { Logo } from "@choc-ui/logo";
-  import App from './App';
-  import Pools from './Pools';
-  import { Link } from "react-router-dom";
+import React from "react";
+import ico from '../images/ico.png';
+import Pools from './Pools';
+import pools from '../images/pools.png';
+import my from '../images/my.png';
+import setting from '../images/setting.png';
+import winners from '../images/winners.png';
+import logoPng from '../images/logo.png';
+import sidebarPng from '../images/sidebar.png';
+import usdc from '../images/usdc.png';
+import connect from '../images/connect.png';
+import profile from '../images/profile.png';
+import logout from '../images/logout.png';
+
 
   export default function AppHome(){
-    const sidebar = useDisclosure();
-    const integrations = useDisclosure();
     const color = useColorModeValue("gray.600", "gray.300");
   
+    const Header = (props:any) => {
+      
+      return(<chakra.header
+              transition="box-shadow 0.2s"
+              borderTopColor="brand.400"
+              w="full"
+              overflowY="hidden">
+              <chakra.div mt={8} h="4.5rem" mx="auto" maxW="1200px">
+                  <Flex w="full" h="16" px="10" align="center" justify="space-between">
+                      <Flex align="center">
+                      <HStack>
+                          <Image h="14" w="full" src={logoPng} alt='Logo' />
+                      </HStack>
+                      <HStack ml={5}>
+                          <Image h="14" w="full"  src={usdc} alt='USDC' />
+                      </HStack>
+                      <HStack ml={5}>
+                          <Image h="16" mt="3" src={connect} alt='Connect' />
+                      </HStack>
+                      <HStack ml={5}>
+                          <Image h="14" src={profile} alt='Profile' />
+                      </HStack>
+                  </Flex>
+                  
+  </Flex>
+  </chakra.div>
+  </chakra.header>)
+  };
+
     const NavItem = (props:any) => {
       const { icon, children, ...rest } = props;
       return (
@@ -70,124 +93,96 @@ import {
   
     const SidebarContent = (props:any) => (
       <Box
+        borderRadius="xl"
         as="nav"
         pos="fixed"
-        top="0"
-        left="0"
+        top="10"
+        left="10"
         zIndex="sticky"
-        h="full"
         pb="10"
         overflowX="hidden"
         overflowY="auto"
-        bg="white"
-        _dark={{ bg: "gray.800" }}
+        bg= "#232966"
         border
         color="inherit"
         borderRightWidth="1px"
-        w="60"
+        w="24"
         {...props}
       >
-        <Flex px="4" py="5" align="center">
-          <Logo />
-          <Text
-            fontSize="2xl"
-            ml="2"
-            color="brand.500"
-            _dark={{ color: "white" }}
-            fontWeight="semibold"
-          >
-            Pool Infinite
-          </Text>
+        <Flex px="6" py="5" align="center">
+          <Link href={`/`}>
+              <Image  src={ico} alt='ico' />
+          </Link>
         </Flex>
         <Flex
           direction="column"
           as="nav"
           fontSize="sm"
-          color="gray.600"
-          aria-label="Main Navigation"
         >
-          {/* <NavItem icon={MdHome}>All Pools</NavItem> */}
-          <NavItem icon={AiFillGift} onClick={integrations.onToggle}>
-          <Link style={{ display: "block", margin: "1rem 0" }} to={`/allpools`}>
-            All Pools
-          </Link>
+          <NavItem direction="column">
+          <Link style={{ display: "block" }} href={`/allpools`}>
+              <Image ml={1.5} src={pools} alt='pools' />
+              All Pools
+            </Link>
           </NavItem>
-        <NavItem icon={FaRss}>
-          <Link style={{ display: "block", margin: "1rem 0" }} to={`/winners`}>
-            Winners
+        <NavItem direction="column">
+          <Link style={{ display: "block" }} href={`/winners`}>
+            <Image  ml={3} src={winners} alt='winners' />
+                Winners
           </Link>
             </NavItem>
-        <NavItem icon={HiCollection}>
-            <Link style={{ display: "block", margin: "1rem 0" }} to={`/mypool`}>
+        <NavItem direction="column"  margin="1rem 0">
+            <Link style={{ display: "block" }} href={`/mypool`}>
+            <Image ml={3} src={my} alt='my' />
                 My Pool
             </Link>
             </NavItem>
-        <NavItem icon={BsGearFill}>
-            <Link style={{ display: "block", margin: "1rem 0" }} to={`/settings`}>
+        <NavItem mb={10} direction="column" >
+            <Link style={{ display: "block" }} href={`/settings`}>
+            <Image ml={3} src={setting} alt='setting' />
                 Settings
+            </Link>
+        </NavItem>
+
+        <NavItem mt={50} direction="column" >
+            <Link href={`/`}>
+              <Image src={logout} alt='logout' />
             </Link>
         </NavItem>
         </Flex>
       </Box>
     );
-    return (
-      <Box as="section" bg="gray.50" _dark={{ bg: "gray.700" }} minH="100vh">
-        <SidebarContent display={{ base: "none", md: "unset" }} />
-        <Drawer
-          isOpen={sidebar.isOpen}
-          onClose={sidebar.onClose}
-          placement="left"
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <SidebarContent w="full" borderRight="none" />
-          </DrawerContent>
-        </Drawer>
-        <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
-          <Flex
-            as="header"
-            align="center"
-            justify="space-between"
-            w="full"
-            px="4"
-            bg="white"
-            _dark={{ bg: "gray.800" }}
-            borderBottomWidth="1px"
-            color="inherit"
-            h="14"
-          >
-            <IconButton
-              aria-label="Menu"
-              display={{ base: "inline-flex", md: "none" }}
-              onClick={sidebar.onOpen}
-              icon={<FiMenu />}
-              size="sm"
-            />
-            <InputGroup w="96" display={{ base: "none", md: "flex" }}>
-              <InputLeftElement color="gray.500">
-                <FiSearch />
-              </InputLeftElement>
-              <Input placeholder="Search for articles..." />
-            </InputGroup>
-  
-            <Flex align="center">
-              <Icon color="gray.500" as={FaBell} cursor="pointer" />
-              <Avatar
-                ml="4"
-                size="sm"
-                name="anubra266"
-                src="#"
-                cursor="pointer"
-              />
-            </Flex>
-          </Flex>
+
+    const SidebarRight = (props:any) => (
+      <Box 
+      w='260px'
+      as="nav"
+      overflowX="hidden"
+      overflowY="auto"
+      pos="fixed"
+      top="10"
+      right="10">
+          <Image src={sidebarPng} alt='sidebar' />
+      </Box>
+    
+    
+    );
+
+    const Content = (props:any) => {
+        return(<Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
           <Box as="main" p="4">
-            {/* Add content here, remove div below  */}
-            {/* <Box borderWidth="4px" borderStyle="dashed" rounded="md" h="96" /> */}
-            {/* <App /> */}
             <Pools />
           </Box>
-        </Box>
+        </Box>);
+    }
+
+
+    return (
+      <Box as="section"  >
+        <SidebarContent display={{ base: "none", md: "unset" }} />
+        <Header />
+        <Content />
+        <SidebarRight />
       </Box>
     );
   };

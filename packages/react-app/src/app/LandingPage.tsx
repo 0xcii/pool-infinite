@@ -140,14 +140,12 @@ export default function PandingPage(){
     </Flex>
         {MobileNavContent}
     </chakra.div>
-    </chakra.header>
-
-    );
+    </chakra.header>);
 
     const Content = (
         <Flex
             direction={{ base: "column", md: "row" }}
-            _light={{ bg: "brand.500" }}
+            _light={{ bg: "brand.700" }}
             px={40}
             py={52}
             mx="auto"

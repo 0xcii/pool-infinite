@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 
 import App from './App';
 import AppHome from './AppHome';
