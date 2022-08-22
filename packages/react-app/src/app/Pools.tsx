@@ -3,22 +3,16 @@ import {
   chakra,
   Box,
   Flex,
-  useColorModeValue,
   Text,
-  useToken,
-  Stack,
   SimpleGrid,
-  Icon,
   Link,
   Badge,
 } from "@chakra-ui/react";
 
 export default function Pools(){
-  const topBg = useColorModeValue("white", "#0B0D21");
-  const bottomBg = useColorModeValue("white", "gray.800");
-  
+
   return (
-    <Box bg="#0B0D21">
+    <Box>
       <Text mb={2} ml={-14}
             fontSize="2xl"
             fontWeight={["bold", "extrabold"]}
@@ -26,9 +20,6 @@ export default function Pools(){
             lineHeight="tight"> All Pools</Text>
     <Flex
       boxSize="full"
-      bg="#F9FAFB"
-      _dark={{ bg: "gray.600" }}
-      p={10}
       alignItems="center"
       justifyContent="center"
     >
@@ -38,9 +29,8 @@ export default function Pools(){
         rounded="md"
         shadow="base"
         w="full"
-        bg="#0B0D21"
       >
-        <Box  bg="#0B0D21">
+        <Box>
           <Box>
             <SimpleGrid
               columns={[1, , 2]}
@@ -49,7 +39,6 @@ export default function Pools(){
               textAlign="left"
             >
               <Box
-                bg="white"
                 _dark={{ bg: "gray.800" }}
                 pt={10}
                 shadow="lg"
