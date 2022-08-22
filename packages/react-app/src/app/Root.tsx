@@ -6,6 +6,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { POLLING_INTERVAL } from 'Constants';
 
 import routing from './Routing';
+import routingApp from './RoutingApp';
 import store from './store';
 
 const getLibrary = (provider: any): any => {
@@ -18,6 +19,7 @@ const Root = () => {
     return (
         <Web3ReactProvider getLibrary={getLibrary}>
             <ReduxProvider store={store}>{routing}</ReduxProvider>
+            <ReduxProvider store={store}>{routingApp}</ReduxProvider>
         </Web3ReactProvider>
     );
 };

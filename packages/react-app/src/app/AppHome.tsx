@@ -10,7 +10,6 @@ import {
   } from "@chakra-ui/react";
 import React from "react";
 import ico from '../images/ico.png';
-import Pools from './Pools';
 import pools from '../images/pools.png';
 import my from '../images/my.png';
 import setting from '../images/setting.png';
@@ -23,7 +22,9 @@ import profile from '../images/profile.png';
 import logout from '../images/logout.png';
 
 
-  export default function AppHome(){
+  export default function AppHome(props:any){
+    const { Content  } = props;
+
     const color = useColorModeValue("gray.600", "gray.300");
   
     const Header = (props:any) => {
@@ -167,15 +168,6 @@ import logout from '../images/logout.png';
     
     
     );
-
-    const Content = (props:any) => {
-        return(<Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
-          <Box as="main" p="4">
-            <Pools />
-          </Box>
-        </Box>);
-    }
-
 
     return (
       <Box as="section"  >

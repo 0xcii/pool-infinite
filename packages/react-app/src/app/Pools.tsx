@@ -7,11 +7,15 @@ import {
   SimpleGrid,
   Link,
   Badge,
+  Image
 } from "@chakra-ui/react";
+import deposit from '../images/deposit.png';
 
 export default function Pools(){
 
   return (
+    <Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
+    <Box as="main" p="4">
     <Box>
       <Text mb={2} ml={-14}
             fontSize="2xl"
@@ -39,13 +43,15 @@ export default function Pools(){
               textAlign="left"
             >
               <Box
-                _dark={{ bg: "gray.800" }}
-                pt={10}
+                bg="gray.50"
+                _dark={{ bg: "gray.900" }}
+                pt={5}
+                h={280}
                 shadow="lg"
                 rounded="md"
               >
-                <Flex direction="column">
-                  <Box px={10} pb={5}>
+                <Flex  direction="column">
+                  <Box px={10} >
                     <Badge
                       mb={1}
                       fontSize="xs"
@@ -60,36 +66,27 @@ export default function Pools(){
                     </Badge>
                     <Text
                       mb={2}
-                      fontSize="5xl"
+                      fontSize="3xl"
                       fontWeight={["bold", "extrabold"]}
                       color="gray.900"
                       _dark={{ color: "gray.50" }}
                       lineHeight="tight"
                     >
                       17500 USDC
-                      <chakra.span
-                        fontSize="2xl"
-                        fontWeight="medium"
-                        color="gray.600"
-                        _dark={{ color: "gray.400" }}
-                      >
-                        {" "}
-                        total{" "}
-                      </chakra.span>
                     </Text>
                     <chakra.p
                       mb={6}
-                      fontSize="md"
+                      fontSize="2xl"
                       color="gray.500"
                       _dark={{ color: "gray.500" }}
                     >
-                      10 Winner will get 1750 USDC.
+                      10 Winner will get {''}
+                      
+                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">1750 USDC</chakra.p>
                     </chakra.p>
                   </Box>
                   <Flex
-                    px={10}
-                    pt={5}
-                    pb={10}
+                    px={11}
                     direction="column"
                     bg="gray.50"
                     _dark={{ bg: "gray.900" }}
@@ -100,12 +97,8 @@ export default function Pools(){
                       display="inline-flex"
                       alignItems="center"
                       justifyContent="center"
-                      px={5}
-                      py={3}
-                      border="solid transparent"
                       fontWeight="semibold"
                       rounded="md"
-                      shadow="md"
                       _light={{ color: "white" }}
                       bg="gray.800"
                       _dark={{ bg: "brand.500" }}
@@ -113,21 +106,23 @@ export default function Pools(){
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
                       }}
+                      href="/allpools/a"
                     >
-                      Deposite to this Pool
+                      <Image  src={deposit} alt='deposit' />
                     </Link>
                   </Flex>
                 </Flex>
               </Box>
               <Box
-                bg="white"
-                _dark={{ bg: "gray.800" }}
-                pt={10}
+                bg="gray.50"
+                _dark={{ bg: "gray.900" }}
+                pt={5}
+                h={280}
                 shadow="lg"
                 rounded="md"
               >
-                <Flex direction="column">
-                  <Box px={10} pb={5}>
+                <Flex  direction="column">
+                  <Box px={10} >
                     <Badge
                       mb={1}
                       fontSize="xs"
@@ -138,40 +133,31 @@ export default function Pools(){
                       px={4}
                       py={1}
                     >
-                      Non-RISK Pool A
+                      Non-RISK Pool B
                     </Badge>
                     <Text
                       mb={2}
-                      fontSize="5xl"
+                      fontSize="3xl"
                       fontWeight={["bold", "extrabold"]}
                       color="gray.900"
                       _dark={{ color: "gray.50" }}
                       lineHeight="tight"
                     >
-                        17500 USDC
-                      <chakra.span
-                        fontSize="2xl"
-                        fontWeight="medium"
-                        color="gray.600"
-                        _dark={{ color: "gray.400" }}
-                      >
-                        {" "}
-                        total{" "}
-                      </chakra.span>
+                      25000 USDC
                     </Text>
                     <chakra.p
                       mb={6}
-                      fontSize="md"
+                      fontSize="2xl"
                       color="gray.500"
                       _dark={{ color: "gray.500" }}
                     >
-                      10 Winner will get 1750 USDC.
+                      10 Winner will get {''}
+                      
+                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">500 $PINT</chakra.p>
                     </chakra.p>
                   </Box>
                   <Flex
-                    px={10}
-                    pt={5}
-                    pb={10}
+                    px={11}
                     direction="column"
                     bg="gray.50"
                     _dark={{ bg: "gray.900" }}
@@ -182,12 +168,8 @@ export default function Pools(){
                       display="inline-flex"
                       alignItems="center"
                       justifyContent="center"
-                      px={5}
-                      py={3}
-                      border="solid transparent"
                       fontWeight="semibold"
                       rounded="md"
-                      shadow="md"
                       _light={{ color: "white" }}
                       bg="gray.800"
                       _dark={{ bg: "brand.500" }}
@@ -195,21 +177,23 @@ export default function Pools(){
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
                       }}
+                      href="/allpools/b"
                     >
-                      Deposite to this Pool
+                      <Image  src={deposit} alt='deposit' />
                     </Link>
                   </Flex>
                 </Flex>
               </Box>
               <Box
-                bg="white"
-                _dark={{ bg: "gray.800" }}
-                pt={10}
+                bg="gray.50"
+                _dark={{ bg: "gray.900" }}
+                pt={5}
+                h={280}
                 shadow="lg"
                 rounded="md"
               >
-                <Flex direction="column">
-                  <Box px={10} pb={5}>
+                <Flex  direction="column">
+                  <Box px={10} >
                     <Badge
                       mb={1}
                       fontSize="xs"
@@ -220,40 +204,31 @@ export default function Pools(){
                       px={4}
                       py={1}
                     >
-                      Non-RISK Pool A
+                      MID-RISK Pool C
                     </Badge>
                     <Text
                       mb={2}
-                      fontSize="5xl"
+                      fontSize="3xl"
                       fontWeight={["bold", "extrabold"]}
                       color="gray.900"
                       _dark={{ color: "gray.50" }}
                       lineHeight="tight"
                     >
-                      17500 USDC
-                      <chakra.span
-                        fontSize="2xl"
-                        fontWeight="medium"
-                        color="gray.600"
-                        _dark={{ color: "gray.400" }}
-                      >
-                        {" "}
-                        total{" "}
-                      </chakra.span>
+                      20000 USDC
                     </Text>
                     <chakra.p
                       mb={6}
-                      fontSize="md"
+                      fontSize="2xl"
                       color="gray.500"
                       _dark={{ color: "gray.500" }}
                     >
-                      10 Winner will get 1750 USDC.
+                      10 Winner will get {''}
+                      
+                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">200 USDC</chakra.p>
                     </chakra.p>
                   </Box>
                   <Flex
-                    px={10}
-                    pt={5}
-                    pb={10}
+                    px={11}
                     direction="column"
                     bg="gray.50"
                     _dark={{ bg: "gray.900" }}
@@ -264,12 +239,8 @@ export default function Pools(){
                       display="inline-flex"
                       alignItems="center"
                       justifyContent="center"
-                      px={5}
-                      py={3}
-                      border="solid transparent"
                       fontWeight="semibold"
                       rounded="md"
-                      shadow="md"
                       _light={{ color: "white" }}
                       bg="gray.800"
                       _dark={{ bg: "brand.500" }}
@@ -277,21 +248,23 @@ export default function Pools(){
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
                       }}
+                      href="/allpools/c"
                     >
-                      Deposite to this Pool
+                      <Image  src={deposit} alt='deposit' />
                     </Link>
                   </Flex>
                 </Flex>
               </Box>
               <Box
-                bg="white"
-                _dark={{ bg: "gray.800" }}
-                pt={10}
+                bg="gray.50"
+                _dark={{ bg: "gray.900" }}
+                pt={5}
+                h={280}
                 shadow="lg"
                 rounded="md"
               >
-                <Flex direction="column">
-                  <Box px={10} pb={5}>
+                <Flex  direction="column">
+                  <Box px={10} >
                     <Badge
                       mb={1}
                       fontSize="xs"
@@ -302,40 +275,31 @@ export default function Pools(){
                       px={4}
                       py={1}
                     >
-                      Non-RISK Pool A
+                      HIGH-RISK Pool D
                     </Badge>
                     <Text
                       mb={2}
-                      fontSize="5xl"
+                      fontSize="3xl"
                       fontWeight={["bold", "extrabold"]}
                       color="gray.900"
                       _dark={{ color: "gray.50" }}
                       lineHeight="tight"
                     >
-                      17500 USDC
-                      <chakra.span
-                        fontSize="2xl"
-                        fontWeight="medium"
-                        color="gray.600"
-                        _dark={{ color: "gray.400" }}
-                      >
-                        {" "}
-                        total{" "}
-                      </chakra.span>
+                      200000 USDC
                     </Text>
                     <chakra.p
                       mb={6}
-                      fontSize="md"
+                      fontSize="2xl"
                       color="gray.500"
                       _dark={{ color: "gray.500" }}
                     >
-                      10 Winner will get 1750 USDC.
+                      1 Winner will get {''}
+                      
+                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">200000 USDC</chakra.p>
                     </chakra.p>
                   </Box>
                   <Flex
-                    px={10}
-                    pt={5}
-                    pb={10}
+                    px={11}
                     direction="column"
                     bg="gray.50"
                     _dark={{ bg: "gray.900" }}
@@ -346,12 +310,8 @@ export default function Pools(){
                       display="inline-flex"
                       alignItems="center"
                       justifyContent="center"
-                      px={5}
-                      py={3}
-                      border="solid transparent"
                       fontWeight="semibold"
                       rounded="md"
-                      shadow="md"
                       _light={{ color: "white" }}
                       bg="gray.800"
                       _dark={{ bg: "brand.500" }}
@@ -359,8 +319,9 @@ export default function Pools(){
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
                       }}
+                      href="/allpools/d"
                     >
-                      Deposite to this Pool
+                      <Image  src={deposit} alt='deposit' />
                     </Link>
                   </Flex>
                 </Flex>
@@ -370,6 +331,8 @@ export default function Pools(){
         </Box>
       </Box>
     </Flex>
+    </Box>
+    </Box>
     </Box>
   );
 };
