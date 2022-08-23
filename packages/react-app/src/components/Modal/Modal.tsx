@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { resetTransaction } from 'helpers/sendTransactionSlice';
-import { purple } from 'styles/colors';
+import { blue } from 'styles/colors';
 import { borderRadius, mediaMax } from 'styles/variables';
 
 import { CloseButton } from './style';
@@ -77,7 +77,7 @@ const StyledModal = styled(Modal)`
     }
 
     &__content {
-        background-color: ${purple[3]};
+        background-color: ${blue[0]};
         border-radius: ${borderRadius};
         max-width: ${rem(920)};
         position: relative;

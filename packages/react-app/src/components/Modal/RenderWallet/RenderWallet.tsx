@@ -3,6 +3,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { formatEther } from '@ethersproject/units';
 import { AbstractConnector } from '@web3-react/abstract-connector';
 import { useWeb3React } from '@web3-react/core';
+import { Text } from '@chakra-ui/react'
 
 import WalletButton from 'components/Button/Wallet';
 import { ModalProps } from 'components/Modal';
@@ -95,7 +96,7 @@ const WalletModal: React.FC<ModalProps> = ({ title, toggleModal }) => {
     return (
         <React.Fragment>
             <ModalHeader>
-                <ModalTitle>{title}</ModalTitle>
+                <ModalTitle><Text color="white">{title}</Text></ModalTitle>
             </ModalHeader>
             <ModalContent>
                 <RenderModalContent />

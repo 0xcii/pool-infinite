@@ -4,6 +4,7 @@ import { useWeb3React } from '@web3-react/core';
 import { utils } from 'ethers';
 import { rem } from 'polished';
 import styled from 'styled-components';
+import { Text } from '@chakra-ui/react'
 
 import { ModalProps } from 'components/Modal';
 import { ModalContent, ModalHeader, ModalTitle } from 'components/Modal/style';
@@ -40,8 +41,8 @@ const JoinModal: React.FC<ModalProps> = () => {
     return (
         <React.Fragment>
             <ModalHeader>
-                <ModalTitle>
-                    {isDaiUnlocked ? 'Weekly Aave Pool: Purchase tickets' : 'Weekly Aave Pool'}
+                <ModalTitle> 
+                <Text color="white">{isDaiUnlocked ? 'Weekly Aave Pool: Purchase tickets' : 'Weekly Aave Pool'}</Text>
                 </ModalTitle>
             </ModalHeader>
             <StyledModalContent>

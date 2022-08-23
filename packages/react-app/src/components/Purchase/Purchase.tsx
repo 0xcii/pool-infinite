@@ -114,7 +114,7 @@ const PurchaseTickets: React.FC = (): any => {
 
     const dispatch = useDispatch();
 
-    const [daiBalance, setDaiBalance] = useState(100);
+    const [daiBalance, setDaiBalance] = useState(0);
     const [aavePoolTotalSupply, setAavePoolTotalSupply] = useState(0);
     const [nextAwardDate, setNextAwardDate] = useState('');
     const [formSubmitted, setFormSubmitted] = useState(false);

@@ -36,7 +36,7 @@ const Landing: React.FC<LandingProps> = ({ toggleWalletModal }) => (
         </StyledButton>
         <StyledTitle level={2}>Built for the ETH Online Hackathon</StyledTitle>
         <StyledTitle level={3}>
-            PoolTogether Pools generate prize money from the accrued interest of yield protocols;
+            PoolInfinite Pools generate prize money from the accrued interest of yield protocols;
             making for a no-loss money lottery.
         </StyledTitle>
         <StyledTitle level={3}>

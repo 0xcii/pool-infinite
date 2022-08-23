@@ -76,9 +76,22 @@ const UnlockDai: React.FC = () => {
                             <Lock />
                         </LockContainer>
                         <StyledText>
-                            PoolTogether requires your approval to transact DAI with the Pool
+                            PoolInfinite requires your approval to transact DAI with the Pool
                         </StyledText>
-                        <Button htmlType="submit" type="primary" size="large">
+                        {/* <Button  
+                            htmlType="submit"
+                            h="50px"
+                            w="130px"
+                            bgColor="#161A42"
+                            color="white"
+                            colorScheme="brand"
+                            cursor="pointer"
+                            variant='outline'>
+                                Allow DAI
+                        </Button> */}
+                        <Button
+                            color="white"
+                            htmlType="submit" type="primary" size="large">
                             Allow DAI
                         </Button>
                     </Form>

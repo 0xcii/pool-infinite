@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import {
+    Button
+} from "@chakra-ui/react";
 import { CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
 import { useWeb3React } from '@web3-react/core';
-import { Button } from 'antd';
 import { utils } from 'ethers';
-import pluralize from 'pluralize';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
 
 import { RootState } from 'app/rootReducer';
 import { DEFAULT_TOKEN_DECIMAL_PRECISION, NETWORK_CHAIN_ID } from 'Constants';
 import { getWalletName } from 'helpers/Network';
 import { getUserTicketsBalance } from 'helpers/Pool';
 
-const StyledWalletInfo = styled.div`
-    text-align: right;
-`;
 
 
-interface HeaderProps {
-    toggleWalletModal: () => void;
-}
-
-const ToggleWalletModalButton: React.FC<HeaderProps> = ({ toggleWalletModal }): any => {
+const ToggleWalletModalButton = ({ toggleWalletModal }): any => {
     const {
         account,
         active: walletConnected,
@@ -58,7 +51,7 @@ const ToggleWalletModalButton: React.FC<HeaderProps> = ({ toggleWalletModal }): 
     }, [account, chainId, library, transactionCompleted, walletConnected]);
 
     return walletConnected ? (
-        <StyledWalletInfo>
+        <div>
             <div className="inline-block margin-right-double vertical-align-middle">
                 <p className="ellipsis no-margin">
                     {account &&
@@ -72,26 +65,26 @@ const ToggleWalletModalButton: React.FC<HeaderProps> = ({ toggleWalletModal }): 
                     )}
                     {chainId && <span>{NETWORK_CHAIN_ID[chainId]}</span>}
                 </p>
-                <p className="no-margin">{`You have ${userBalance.toFixed(2)} Aave Pool ${pluralize(
-                    'ticket',
-                    userBalance,
-                )}`}</p>
             </div>
             <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} />
-        </StyledWalletInfo>
+            </div>
     ) : (
-        <Button type="primary" onClick={toggleWalletModal}>
-            Connect wallet
-        </Button>
+            <Button  
+                h="50px"
+                w="130px"
+                bgColor="#161A42"
+                color="white"
+                colorScheme="brand"
+                cursor="pointer"
+                variant='outline'
+                onClick={toggleWalletModal}>
+                    Connect
+            </Button>
     );
 };
 
-const Header: React.FC<HeaderProps> = ({ toggleWalletModal }) => {
-    return (
-        <div>
-            <ToggleWalletModalButton key="1" toggleWalletModal={toggleWalletModal} />
-        </div>
-    );
+const Wallet = ({ toggleWalletModal }) => {
+    return (<ToggleWalletModalButton key="1" toggleWalletModal={toggleWalletModal} />);
 };
 
-export default Header;
+export default Wallet;

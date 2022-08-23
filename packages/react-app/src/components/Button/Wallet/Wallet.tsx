@@ -3,7 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector';
 import { useWeb3React } from '@web3-react/core';
 import { Button } from 'antd';
 import styled from 'styled-components';
-
+import { Text } from '@chakra-ui/react'
 import { purple } from 'styles/colors';
 import { size as fontSize } from 'styles/fonts';
 import { borderRadius, spacingUnit } from 'styles/variables';
@@ -90,7 +90,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({
             onClick={handleClick}
             loading={showSpinner}
         >
-            <StyledText>{title}</StyledText>
+            <StyledText><Text color="white">{title}</Text></StyledText>
         </StyledButton>
     );
 };

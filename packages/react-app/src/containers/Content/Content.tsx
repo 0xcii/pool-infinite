@@ -61,7 +61,6 @@ const Content: React.FC<ContentProps> = ({
     const { account, active: walletConnected, chainId, library } = useWeb3React<Web3Provider>();
 
     const [currentPrize, setCurrentPrize] = useState('');
-
     const [mountedAt, setMountedAt] = useState(0);
     const [secondsToPrizeAtMount, setSecondsToPrizeAtMount] = useState(0);
     const [secondsRemainingNow, setSecondsRemainingNow] = useState('');

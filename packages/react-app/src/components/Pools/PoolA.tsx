@@ -4,23 +4,15 @@ import {
     Box,
     Flex,
     GridItem,
-    Input,
     Button
 } from "@chakra-ui/react";
-
 
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
-import { rem } from 'polished';
-import styled from 'styled-components';
-
 import { getAavePoolPrize, getPrizePeriodRemainingSeconds } from 'helpers/Pool';
 import { useInterval } from 'hooks/useInterval';
-import Dai from 'images/Dai';
-import Trophy from 'images/Trophy';
-import { spacingUnit } from 'styles/variables';
 
 
 momentDurationFormatSetup(moment);
@@ -115,7 +107,7 @@ return (
           _dark={{ color: "gray.100" }}
           lineHeight="shorter"
         >
-         170 USDC
+        170 USDC
         </chakra.h1>
         <chakra.p
           mb={6}
@@ -126,17 +118,9 @@ return (
           Each winner get 0.175 USDC
         </chakra.p>
         <GridItem as="label"  colSpan={{ base: "auto", lg: 4 }}>
-            <Input 
-                w={{ base: "full", md: 5 / 12 }}
-                mr={3}
-                size="lg"
-                type="amount"
-                placeholder="USDC: 0.0"
-                required
-            />
             <Button
             as={GridItem}
-            w={{ base: "full", md: 3 / 12 }}
+            w={{ base: "full", md: 5 / 12 }}
             variant="solid"
             colSpan={{ base: "auto", lg: 2 }}
             size="lg"
@@ -152,8 +136,7 @@ return (
           m={6}
           fontSize={{ base: "lg", md: "xl" }}
           color="white"
-          lineHeight="base"
-         >
+          lineHeight="base">
           You will get all your staked asset back if you are not the winner. There is no potential risk in this pool.
         </chakra.p>
 

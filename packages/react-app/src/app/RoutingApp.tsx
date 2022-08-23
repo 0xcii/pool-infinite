@@ -29,9 +29,9 @@ const routingApp = (
         <Switch>
             <Route exact path="/app" component={AllPools} />
             <Route exact path="/allpools" component={AllPools} />
-            <Route exact path="/winners" component={Winners} />
-            <Route exact path="/mypool" component={MyPools} />
-            <Route exact path="/settings" component={Setting} />
+            <Route exact path="/winners" component={AllPools} />
+            <Route exact path="/mypool" component={AllPools} />
+            <Route exact path="/settings" component={AllPools} />
 
             <Route exact path="/allpools/a" component={PoolAPage} />
             <Route exact path="/allpools/b" component={PoolBPage} />

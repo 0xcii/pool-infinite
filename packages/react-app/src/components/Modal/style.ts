@@ -1,7 +1,7 @@
 import { rem } from 'polished';
 import styled from 'styled-components';
 
-import { purple } from 'styles/colors';
+import { blue } from 'styles/colors';
 import { lineHeight, size as fontSize, weight as fontWeight } from 'styles/fonts';
 import { borderRadius, mediaMax, spacingUnit } from 'styles/variables';
 
@@ -9,14 +9,14 @@ const closeButtonSizeDesktop = rem(40);
 const closeButtonSizeMobile = rem(32);
 
 export const ModalHeader = styled.div`
-    background-color: ${purple[4]};
+    background-color: ${blue[1]};
     border-top-left-radius: ${borderRadius};
     border-top-right-radius: ${borderRadius};
     padding: ${spacingUnit(2)} 0;
     text-align: center;
 
     h4 {
-        color: ${purple[0]};
+        color: ${blue[0]};
         font-size: ${rem(18)};
     }
 
@@ -46,10 +46,10 @@ export const ModalContent = styled.div`
 
 export const CloseButton = styled.button`
     align-items: center;
-    background-color: ${purple[3]};
+    background-color: ${blue[3]};
     border-radius: 100%;
     border: 0;
-    color: ${purple[0]};
+    color: ${blue[0]};
     cursor: pointer;
     display: flex;
     height: ${closeButtonSizeDesktop};
@@ -62,7 +62,7 @@ export const CloseButton = styled.button`
     width: ${closeButtonSizeDesktop};
 
     &:hover {
-        background-color: ${purple[2]};
+        background-color: ${blue[2]};
         color: white;
     }
 

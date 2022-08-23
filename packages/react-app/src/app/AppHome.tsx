@@ -1,11 +1,9 @@
 import {
     Box,
     Image,
-    chakra,
     Flex,
     Icon,
     Link,
-    HStack,
     useColorModeValue,
   } from "@chakra-ui/react";
 import React from "react";
@@ -21,6 +19,8 @@ import Modal, { useModal } from 'components/Modal';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import RenderJoinModal from 'components/Modal/RenderJoin';
+import RenderWalletModal from 'components/Modal/RenderWallet';
+import RenderWithdrawModal from 'components/Modal/RenderWithdraw';
 
   export default function AppHome(props:any){
     const { Content  } = props;
@@ -150,18 +150,29 @@ import RenderJoinModal from 'components/Modal/RenderJoin';
     return (
       <Box as="section"  >
         <SidebarContent display={{ base: "none", md: "unset" }} />
-        <AppHeader />
+        <AppHeader toggleWalletModal={toggleWalletModal} />
         <Content 
-            toggleJoinModal={toggleJoinModal}
-            toggleWithdrawModal={toggleWithdrawModal}
-            toggleWalletModal={toggleWalletModal}
-            walletModalIsOpen={walletModalIsOpen} />
-
+          toggleJoinModal={toggleJoinModal}
+          toggleWithdrawModal={toggleWithdrawModal}
+          toggleWalletModal={toggleWalletModal}
+          walletModalIsOpen={walletModalIsOpen} />
         <Modal
                 component={RenderJoinModal}
                 isOpen={joinModalIsOpen}
                 toggleModal={toggleJoinModal}
             />
+        {!walletConnected && <Modal
+              component={RenderWalletModal}
+              isOpen={walletModalIsOpen}
+              toggleModal={toggleWalletModal}
+              title="Select a Wallet"
+            />}
+          <Modal
+              component={RenderWithdrawModal}
+              isOpen={withdrawModalIsOpen}
+              toggleModal={toggleWithdrawModal}
+              title="Weekly Aave Pool: Withdraw Tickets"
+          />
         <SidebarRight />
       </Box>
     );
