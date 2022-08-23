@@ -107,7 +107,7 @@ return (
           _dark={{ color: "gray.100" }}
           lineHeight="shorter"
         >
-        170 USDC
+        170 DAI
         </chakra.h1>
         <chakra.p
           mb={6}
@@ -115,7 +115,7 @@ return (
           color="gray.500"
           lineHeight="base"
         >
-          Each winner get 0.175 USDC
+          Each winner get 0.175 DAI
         </chakra.p>
         <GridItem as="label"  colSpan={{ base: "auto", lg: 4 }}>
             <Button

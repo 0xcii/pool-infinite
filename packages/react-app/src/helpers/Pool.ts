@@ -26,7 +26,7 @@ export const getNextAwardDate = () => {
 
 export const getPrizePeriodRemainingSeconds = async (chainId: number) => {
     const provider = getProvider(chainId);
-
+    // console.log("provider:", provider)
     const aavePoolContract = new Contract(
         addresses[chainId].contracts.aavePool,
         abis.AavePrizePool,

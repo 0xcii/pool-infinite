@@ -9,7 +9,7 @@ import {
     ROPSTEN_NETWORK_ID,
 } from 'Constants';
 
-const providerURL = "https://kovan.infura.io/v3/805b472e5450481eae7e66caba31a373"
+const providerURL = "https://ropsten.infura.io/v3/805b472e5450481eae7e66caba31a373"
 
 export const isMainNetwork = (networkId: number) => networkId === MAINNET_NETWORK_ID;
 export const isRopstenNetwork = (networkId: number) => networkId === ROPSTEN_NETWORK_ID;

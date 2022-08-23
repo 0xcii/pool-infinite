@@ -9,7 +9,7 @@ import { NetworkConnector } from '@web3-react/network-connector';
 import { SUPPORTED_CHAIN_IDS } from 'Constants';
 import { Web3ReactContextInterface } from 'types/web3-react';
 
-const providerURL = "https://kovan.infura.io/v3/805b472e5450481eae7e66caba31a373"
+const providerURL = "https://ropsten.infura.io/v3/805b472e5450481eae7e66caba31a373"
 
 
 // const RPC_URLS: { [chainId: number]: string } = {

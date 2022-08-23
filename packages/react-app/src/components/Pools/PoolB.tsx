@@ -1,14 +1,84 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import {
     chakra,
     Box,
     Flex,
     GridItem,
-    Input,
     Button
 } from "@chakra-ui/react";
 
-export default function PoolB(){
+import { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import moment from 'moment';
+import momentDurationFormatSetup from 'moment-duration-format';
+import { getAavePoolPrize, getPrizePeriodRemainingSeconds } from 'helpers/Pool';
+import { useInterval } from 'hooks/useInterval';
+
+
+momentDurationFormatSetup(moment);
+
+
+export default function PoolB({
+  toggleJoinModal,
+  toggleWithdrawModal,
+  toggleWalletModal,
+  walletModalIsOpen,
+}){
+  const { account, active: walletConnected, chainId, library } = useWeb3React<Web3Provider>();
+
+  const [currentPrize, setCurrentPrize] = useState('');
+  const [mountedAt, setMountedAt] = useState(0);
+  const [secondsToPrizeAtMount, setSecondsToPrizeAtMount] = useState(0);
+  const [secondsRemainingNow, setSecondsRemainingNow] = useState('');
+
+  const setPrizePeriodRemainingSecondsAtMount = async () => {
+      const prizePeriodRemainingSeconds = await getPrizePeriodRemainingSeconds(chainId as number);
+      const formattedPrizePeriodRemainingSeconds = parseInt(
+          prizePeriodRemainingSeconds.toString(),
+          10,
+      );
+
+      setSecondsToPrizeAtMount(formattedPrizePeriodRemainingSeconds);
+      setMountedAt(parseInt((Date.now() / 1000).toString(), 10));
+  };
+  const getAsyncValues = async () => {
+      const { prizeInDai } = await getAavePoolPrize(
+          account as string,
+          chainId as number,
+          library,
+      );
+
+      setCurrentPrize(Number(prizeInDai).toFixed());
+  };
+  useEffect(() => {
+    if (walletConnected) {
+        getAsyncValues();
+        setPrizePeriodRemainingSecondsAtMount();
+
+        if (walletModalIsOpen) {
+            toggleWalletModal();
+        }
+    }
+}, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
+
+useInterval(() => {
+    const diffInSeconds = parseInt((Date.now() / 1000).toString(), 10) - mountedAt;
+    const remaining = secondsToPrizeAtMount - diffInSeconds;
+
+    setSecondsRemainingNow(
+        remaining <= 0
+            ? '0'
+            : moment.duration(remaining, 'seconds').format('d [days] [and] h:m:s [hours]'),
+    );
+}, 1000);
+
+const handleJoinAavePool = () => {
+    toggleJoinModal();
+};
+
+const handleWithdrawFromAavePool = () => {
+    toggleWithdrawModal();
+};
 
 return (
     <Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
@@ -37,7 +107,7 @@ return (
           _dark={{ color: "gray.100" }}
           lineHeight="shorter"
         >
-         170 USDC
+        500 $PINT
         </chakra.h1>
         <chakra.p
           mb={6}
@@ -45,26 +115,19 @@ return (
           color="gray.500"
           lineHeight="base"
         >
-          Each winner get 0.175 USDC
+          Each winner get 50 $PINT
         </chakra.p>
         <GridItem as="label"  colSpan={{ base: "auto", lg: 4 }}>
-            <Input 
-                w={{ base: "full", md: 5 / 12 }}
-                mr={3}
-                size="lg"
-                type="amount"
-                placeholder="USDC: 0.0"
-                required
-            />
             <Button
             as={GridItem}
-            w={{ base: "full", md: 3 / 12 }}
+            w={{ base: "full", md: 5 / 12 }}
             variant="solid"
             colSpan={{ base: "auto", lg: 2 }}
             size="lg"
             type="submit"
             colorScheme="brand"
             cursor="pointer"
+            onClick={handleJoinAavePool}
           >
             Stake
           </Button>
@@ -73,8 +136,7 @@ return (
           m={6}
           fontSize={{ base: "lg", md: "xl" }}
           color="white"
-          lineHeight="base"
-         >
+          lineHeight="base">
           You will get all your staked asset back if you are not the winner. There is no potential risk in this pool.
         </chakra.p>
 
