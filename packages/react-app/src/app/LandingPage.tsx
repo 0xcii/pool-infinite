@@ -31,10 +31,6 @@ import rightPng from '../images/right.png';
 export default function PandingPage(){
     const mobileNav = useDisclosure();
 
-    const { toggleColorMode: toggleMode } = useColorMode();
-    const text = useColorModeValue("dark", "light");
-    const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-
     const ref = React.useRef<HTMLDivElement | null>(null);
     const [y, setY] = React.useState(0);
     const height = ref.current ? ref.current.getBoundingClientRect() : 0;
@@ -117,16 +113,6 @@ export default function PandingPage(){
             </Link>
         </HStack>
         <IconButton
-            size="md"
-            fontSize="lg"
-            aria-label={`Switch to ${text} mode`}
-            variant="ghost"
-            color="current"
-            ml={{ base: "0", md: "3" }}
-            onClick={toggleMode}
-            icon={<SwitchIcon />}
-        />
-        <IconButton
             display={{ base: "flex", md: "none" }}
             aria-label="Open menu"
             fontSize="20px"
@@ -146,15 +132,15 @@ export default function PandingPage(){
         <Flex
             direction={{ base: "column", md: "row" }}
             _light={{ bg: "brand.700" }}
-            px={40}
-            py={52}
+            px={10}
+            py={150}
             mx="auto"
         >
         <Box
             
-            w={{ base: "full", md: 11 / 12, xl: 9 / 12 }}
+            w={{ base: "full", md: 2 / 12, xl: 7 / 12 }}
             mx="auto"
-            pr={{ md: 80 }}
+            pr={{ md: 20 }}
         >
             <chakra.h2
                 fontSize={{ base: "3xl", sm: "4xl" }}
@@ -180,17 +166,17 @@ export default function PandingPage(){
                 mb={{ base: 4, md: 8 }}
                 spacing={2}
             >
-            <Box w='400px'  color='white'>
+            <Box mt="10" w='400px'  color='white'>
                 <Link  href="/app">
                     <Image w='100%' h="80px" src={startPng} alt='Start To Win' />
                 </Link>
             </Box>
             </Stack>
             </Box>
-            <Box textAlign="center">
+            <Box mt="-10" textAlign="center">
                 <Image
-                    w='100%'
-                    h="250px"
+                    w='400'
+                    h="350px"
                     src={rightPng}
                 />
             </Box>
