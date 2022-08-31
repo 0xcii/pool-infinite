@@ -4,7 +4,6 @@ import {
     Flex,
     Icon,
     Link,
-    Button,
     useColorModeValue,
   } from "@chakra-ui/react";
 import React from "react";
@@ -23,7 +22,7 @@ import RenderJoinModal from 'components/Modal/RenderJoin';
 import RenderWalletModal from 'components/Modal/RenderWallet';
 import RenderWithdrawModal from 'components/Modal/RenderWithdraw';
 import { useToast } from '@chakra-ui/react';
-
+import { useEffect } from 'react';
 
   export default function AppHome(props:any){
     const { Content  } = props;
@@ -177,7 +176,10 @@ import { useToast } from '@chakra-ui/react';
     const { modalIsOpen: walletModalIsOpen, toggleModal: toggleWalletModal } = useModal();
     const { modalIsOpen: joinModalIsOpen, toggleModal: toggleJoinModal } = useModal();
     const { modalIsOpen: withdrawModalIsOpen, toggleModal: toggleWithdrawModal } = useModal();
-
+    useEffect(() => {
+      toggleWalletModal()
+    }, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
+    
     return (
       <Box as="section"  >
         <SidebarContent display={{ base: "none", md: "unset" }} />
