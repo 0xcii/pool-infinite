@@ -138,7 +138,7 @@ return (
           >
             Stake
           </Button>
-          <Button
+          {/* <Button
             as={GridItem}
             margin={2}
             w={{ base: "full", md: 4 / 12 }}
@@ -151,7 +151,7 @@ return (
             onClick={walletConnected?handleWithdrawFromAavePool:toggleWalletModal}
           >
             Withdraw
-          </Button>
+          </Button> */}
           </GridItem>
           <chakra.p
           m={6}

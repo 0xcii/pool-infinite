@@ -136,9 +136,9 @@ return (
             cursor="pointer"
             onClick={walletConnected?handleJoinAavePool:toggleWalletModal}
           >
-            Stake
+            Buy
           </Button>
-          <Button
+          {/* <Button
             as={GridItem}
             margin={2}
             w={{ base: "full", md: 4 / 12 }}
@@ -151,7 +151,7 @@ return (
             onClick={walletConnected?handleWithdrawFromAavePool:toggleWalletModal}
           >
             Withdraw
-          </Button>
+          </Button> */}
           </GridItem>
           <chakra.p
           m={6}

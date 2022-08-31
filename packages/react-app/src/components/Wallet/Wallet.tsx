@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Button, Flex, Box, Icon
+    Button, Flex, Box, Icon, Image
 } from "@chakra-ui/react";
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useWeb3React } from '@web3-react/core';
@@ -12,33 +12,37 @@ import { DEFAULT_TOKEN_DECIMAL_PRECISION, NETWORK_CHAIN_ID } from 'Constants';
 import { getWalletName } from 'helpers/Network';
 import { getUserTicketsBalance } from 'helpers/Pool';
 import { Web3Provider } from '@ethersproject/providers';
-
+import balanceBG from '../../images/balance.png';
+import profileImage from '../../images/profileLogo.png';
 
 const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
 
     const NetworkButton = ()=> (
         <Box
-          margin={2}
+          bgImage= {balanceBG}
+          mt={4}
+          background-repeat= "repeat"
           display={{
             base: "none",
             md: "flex",
           }}
           alignItems="center"
           aria-label="Sponsor Choc UI on Open Collective"
-          bg="brand"
-          borderWidth="1px"
-          borderColor="gray.200"
+          // bg="brand"
+          // borderWidth="1px"
+          // borderColor="gray.200"
           px="1em"
-          minH="36px"
+          h="30px"
+          minH="50px"
           rounded="md"
           fontSize="sm"
           color="white"
-          outline="0"
+          outline="10"
           transition="all 0.3s"
-          _hover={{
-            bg: "brand",
-            borderColor: "gray.300",
-          }}
+          // _hover={{
+          //   bg: "brand",
+          //   borderColor: "gray.300",
+          // }}
           _active={{
             borderColor: "gray.200",
           }}
@@ -47,8 +51,7 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
           }}
           
         >
-          <Icon w="4" h="4" color="red.500" mr="2" />
-          <Box as="strong" lineHeight="inherit" fontWeight="semibold">
+          <Box  as="strong" lineHeight="inherit" fontWeight="semibold">
             {chainId && <span>{NETWORK_CHAIN_ID[chainId]}</span>}
           </Box>
         </Box>
@@ -64,8 +67,9 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
           alignItems="center"
           aria-label="Sponsor Choc UI on Open Collective"
           bg="brand"
-          borderWidth="1px"
-          borderColor="gray.200"
+        
+          // borderWidth="1px"
+          // borderColor="gray.200"
           px="1em"
           minH="36px"
           rounded="md"
@@ -85,6 +89,12 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
           }}
           
         >
+          <Image
+            borderRadius='full'
+            boxSize='55px'
+            margin={2}
+            src={profileImage}
+          />
           <Box as="strong" lineHeight="inherit" fontWeight="semibold">
           {account &&
                         account.substr(0, 6) +
@@ -174,10 +184,10 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
                 
                     <AddressButton />
                     <NetworkButton />
-                    <BalanceButton />
+                    {/* <BalanceButton /> */}
 
             
-            <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} />
+            {/* <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} /> */}
             </Flex>
     ) : (
             <Button  

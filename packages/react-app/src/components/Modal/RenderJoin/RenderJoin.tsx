@@ -42,7 +42,7 @@ const JoinModal: React.FC<ModalProps> = () => {
         <React.Fragment>
             <ModalHeader>
                 <ModalTitle> 
-                <Text color="white">{isDaiUnlocked ? 'Weekly Aave Pool: Purchase tickets' : 'Weekly Aave Pool'}</Text>
+                <Text color="white">{isDaiUnlocked ? 'Weekly Lottery Pool: Purchase tickets' : 'Weekly Lottery Pool'}</Text>
                 </ModalTitle>
             </ModalHeader>
             <StyledModalContent>

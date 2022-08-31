@@ -80,7 +80,7 @@ export default function PandingPage(){
         <Flex w="full" h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
                 <Link as={ReachLink} to="/">
-            <HStack>
+            <HStack ml={-6}>
                 <Image  src={logoPng} alt='Logo' />
             </HStack>
             </Link>
@@ -95,7 +95,7 @@ export default function PandingPage(){
         >
         <HStack
             spacing={5}
-            mr={5}
+            mr={-6}
             color="white"
             display={{
                 base: "none",
@@ -141,6 +141,7 @@ export default function PandingPage(){
             w={{ base: "full", md: 2 / 12, xl: 7 / 12 }}
             mx="auto"
             pr={{ md: 20 }}
+            ml={20}
         >
             <chakra.h2
                 fontSize={{ base: "3xl", sm: "4xl" }}
@@ -173,7 +174,7 @@ export default function PandingPage(){
             </Box>
             </Stack>
             </Box>
-            <Box mt="-10" textAlign="center">
+            <Box mr={20} mt="-10" textAlign="center">
                 <Image
                     w='400'
                     h="350px"
