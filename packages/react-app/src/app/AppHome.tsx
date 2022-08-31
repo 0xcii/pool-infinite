@@ -4,6 +4,7 @@ import {
     Flex,
     Icon,
     Link,
+    Button,
     useColorModeValue,
   } from "@chakra-ui/react";
 import React from "react";
@@ -21,9 +22,12 @@ import { useWeb3React } from '@web3-react/core';
 import RenderJoinModal from 'components/Modal/RenderJoin';
 import RenderWalletModal from 'components/Modal/RenderWallet';
 import RenderWithdrawModal from 'components/Modal/RenderWithdraw';
+import { useToast } from '@chakra-ui/react';
+
 
   export default function AppHome(props:any){
     const { Content  } = props;
+    const toast = useToast()
 
     const color = useColorModeValue("gray.600", "gray.300");
   
@@ -92,32 +96,59 @@ import RenderWithdrawModal from 'components/Modal/RenderWithdraw';
           as="nav"
           fontSize="sm"
         >
-          <NavItem direction="column">
+          <NavItem direction="column" >
           <Link style={{ display: "block" }} href={`/allpools`}>
               <Image ml={1.5} src={pools} alt='pools' />
               All Pools
             </Link>
           </NavItem>
-        <NavItem direction="column">
-          <Link style={{ display: "block" }} href={`/winners`}>
-            <Image  ml={3} src={winners} alt='winners' />
+        <NavItem direction="column" onClick={() =>
+                  toast({
+                    title: 'Tip',
+                    description: "Coming soon.",
+                    status: 'info',
+                    duration: 9000,
+                    isClosable: true,
+                    position: "top"
+                  })
+                }>
+          {/* <Link style={{ display: "block" }} href={`/winners`}> */}
+            <Image  mb={2} src={winners} alt='winners' />
                 Winners
-          </Link>
+          {/* </Link> */}
             </NavItem>
-        <NavItem direction="column"  margin="1rem 0">
-            <Link style={{ display: "block" }} href={`/mypool`}>
-            <Image ml={3} src={my} alt='my' />
+        <NavItem direction="column"  margin="1rem 0" onClick={() =>
+                  toast({
+                    title: 'Tip',
+                    description: "Coming soon.",
+                    status: 'info',
+                    duration: 9000,
+                    isClosable: true,
+                    position: "top"
+                  })
+                }>
+            {/* <Link style={{ display: "block" }} href={`/mypool`}> */}
+            <Image mb={2} src={my} alt='my' />
                 My Pool
-            </Link>
+            {/* </Link> */}
             </NavItem>
-        <NavItem mb={10} direction="column" >
-            <Link style={{ display: "block" }} href={`/settings`}>
-            <Image ml={3} src={setting} alt='setting' />
+        <NavItem mb={10} direction="column" onClick={() =>
+                  toast({
+                    title: 'Tip',
+                    description: "Coming soon.",
+                    status: 'info',
+                    duration: 9000,
+                    isClosable: true,
+                    position: "top"
+                  })
+                }>
+            {/* <Link style={{ display: "block" }} href={`/settings`}> */}
+            <Image mb={2} src={setting} alt='setting' />
                 Settings
-            </Link>
+            {/* </Link> */}
         </NavItem>
 
-        <NavItem mt={50} direction="column" >
+        <NavItem mt={55} direction="column" >
             <Link href={`/`}>
               <Image src={logout} alt='logout' />
             </Link>
