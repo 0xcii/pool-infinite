@@ -24,7 +24,7 @@ export default function AppHeader({ toggleWalletModal }){
                 <HStack>
                     <Image h="14" w="full" src={logoPng} alt='Logo' />
                 </HStack>
-                <HStack ml={380}>
+                <HStack ml={100}>
                         <Wallet toggleWalletModal={toggleWalletModal} />
                     </HStack>
             </Flex>

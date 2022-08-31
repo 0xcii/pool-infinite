@@ -306,7 +306,7 @@ export default function Pools(){
                       _dark={{ color: "gray.50" }}
                       lineHeight="tight"
                     >
-                      200000 USDC
+                      20000 USDC
                     </Text>
                     <chakra.p
                       mb={6}
@@ -316,7 +316,7 @@ export default function Pools(){
                     >
                       1 Winner will get {''}
                       
-                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">200000 USDC</chakra.p>
+                      <chakra.p ml={20}  fontSize="xl" fontWeight={["bold", "extrabold"]} color="#00BAAD">20000 USDC</chakra.p>
                     </chakra.p>
                   </Box>
                   <Flex

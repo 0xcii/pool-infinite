@@ -105,7 +105,7 @@ export default function PandingPage(){
             <Link isExternal href="#"> 
                 <Text fontSize='lg' fontWeight="bold" > Join us </Text>
             </Link>
-            <Link isExternal href="#"> 
+            <Link isExternal href="https://docs.google.com/document/d/1zknduJUFM9V7OJcLvFQtx9uxVEflK8PAwE_K2Mu8Bdc/edit#"> 
                 <Text fontSize='lg' fontWeight="bold" > White Paper </Text>
             </Link>
             <Link isExternal href="/app">

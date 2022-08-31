@@ -13,7 +13,7 @@ import moment from 'moment';
 import momentDurationFormatSetup from 'moment-duration-format';
 import { getAavePoolPrize, getPrizePeriodRemainingSeconds } from 'helpers/Pool';
 import { useInterval } from 'hooks/useInterval';
-
+import cardBG from '../../images/card_bg.gif';
 
 momentDurationFormatSetup(moment);
 
@@ -61,6 +61,11 @@ export default function PoolC({
     }
 }, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
 
+useEffect(() => {
+  toggleWalletModal()
+}, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
+
+
 useInterval(() => {
     const diffInSeconds = parseInt((Date.now() / 1000).toString(), 10) - mountedAt;
     const remaining = secondsToPrizeAtMount - diffInSeconds;
@@ -81,13 +86,14 @@ const handleWithdrawFromAavePool = () => {
 };
 
 return (
-    <Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
-        <Box w={{ base: "full",  xl: 8 / 12 }}
+    <Box  ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
+        <Box  w={{ base: "full",  xl: 8 / 12 }}
         textAlign={{ base: "left", md: "center" }}
         mx="auto">
-        <Flex p={50} w="full" alignItems="center" justifyContent="center">
-            <Box bg="white" _dark={{ bg: "#30366E" }} shadow="lg" rounded="lg">
-                <Box px={4} py={2}>
+        <Flex  p={50} w="full" alignItems="center" justifyContent="center">
+            <Box bgImage= {cardBG}
+                opacity= {0.90}  shadow="lg" rounded="lg">
+                <Box  px={4} py={2}>
                     <chakra.p
                         mt={1}
                         fontSize="sm"
@@ -107,7 +113,7 @@ return (
           _dark={{ color: "gray.100" }}
           lineHeight="shorter"
         >
-        2000 DAI
+        2000 USDC
         </chakra.h1>
         <chakra.p
           mb={6}
@@ -115,21 +121,36 @@ return (
           color="gray.500"
           lineHeight="base"
         >
-          Each winner get 200 DAI
+          Each winner get 200 USDC
         </chakra.p>
         <GridItem as="label"  colSpan={{ base: "auto", lg: 4 }}>
             <Button
+            margin={2}
             as={GridItem}
-            w={{ base: "full", md: 5 / 12 }}
+            w={{ base: "full", md: 4 / 12 }}
             variant="solid"
             colSpan={{ base: "auto", lg: 2 }}
             size="lg"
             type="submit"
             colorScheme="brand"
             cursor="pointer"
-            onClick={handleJoinAavePool}
+            onClick={walletConnected?handleJoinAavePool:toggleWalletModal}
           >
             Stake
+          </Button>
+          <Button
+            as={GridItem}
+            margin={2}
+            w={{ base: "full", md: 4 / 12 }}
+            variant="solid"
+            colSpan={{ base: "auto", lg: 2 }}
+            size="lg"
+            type="submit"
+            colorScheme="brand"
+            cursor="pointer"
+            onClick={walletConnected?handleWithdrawFromAavePool:toggleWalletModal}
+          >
+            Withdraw
           </Button>
           </GridItem>
           <chakra.p
@@ -137,7 +158,7 @@ return (
           fontSize={{ base: "lg", md: "xl" }}
           color="white"
           lineHeight="base">
-          You will get all your staked asset back if you are not the winner. There is no potential risk in this pool.
+          You will get part of your staked asset back if you are not the winner. There is mid potential risk in this pool.
         </chakra.p>
 
   </Box> 

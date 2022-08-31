@@ -302,7 +302,7 @@ const Withdraw: React.FC = (): any => {
                     </StyledCheckbox>
                     {isWithdrawInstant && Number(form.values.withdraw) > 0 && (
                         <StyledWithdrawMessage>
-                            You will receive {instantWithdrawAmount.toFixed(2)} Aave Pool{' '}
+                            You will receive {instantWithdrawAmount.toFixed(2)} Lottery Pool{' '}
                             {pluralize('ticket', instantWithdrawAmount)}{' '}
                             {exitFee === 0 ? (
                                 <React.Fragment>
@@ -317,7 +317,7 @@ const Withdraw: React.FC = (): any => {
                     )}
                     {!isWithdrawInstant && Number(form.values.withdraw) > 0 && (
                         <StyledWithdrawMessage>
-                            You will receive {Number(form.values.withdraw)} Aave Pool{' '}
+                            You will receive {Number(form.values.withdraw)} Lottery Pool{' '}
                             {pluralize('ticket', instantWithdrawAmount)}{' '}
                             {timelockDuration === 0 ? (
                                 <React.Fragment>
@@ -346,7 +346,7 @@ const Withdraw: React.FC = (): any => {
             />
             <SubmitButtonContainer>
                 <Button htmlType="submit" type="primary" size="large">
-                    {`Withdraw ${values.withdraw} Aave Pool ${pluralize(
+                    {`Withdraw ${values.withdraw} Lottery Pool ${pluralize(
                         'ticket',
                         Number(values.withdraw),
                     )}`}

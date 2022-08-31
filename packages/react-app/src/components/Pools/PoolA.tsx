@@ -113,7 +113,7 @@ return (
           _dark={{ color: "gray.100" }}
           lineHeight="shorter"
         >
-        170 DAI
+        170 USDC
         </chakra.h1>
         <chakra.p
           mb={6}
@@ -121,7 +121,7 @@ return (
           color="gray.500"
           lineHeight="base"
         >
-          Each winner get 0.175 DAI
+          Each winner get 0.175 USDC
         </chakra.p>
         <GridItem as="label"  colSpan={{ base: "auto", lg: 4 }}>
             <Button
@@ -148,7 +148,7 @@ return (
             type="submit"
             colorScheme="brand"
             cursor="pointer"
-            onClick={walletConnected?handleJoinAavePool:toggleWalletModal}
+            onClick={walletConnected?handleWithdrawFromAavePool:toggleWalletModal}
           >
             Withdraw
           </Button>

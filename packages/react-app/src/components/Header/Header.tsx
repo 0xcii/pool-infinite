@@ -72,7 +72,7 @@ const ToggleWalletModalButton: React.FC<HeaderProps> = ({ toggleWalletModal }): 
                     )}
                     {chainId && <span>{NETWORK_CHAIN_ID[chainId]}</span>}
                 </p>
-                <p className="no-margin">{`You have ${userBalance.toFixed(2)} Aave Pool ${pluralize(
+                <p className="no-margin">{`You have ${userBalance.toFixed(2)} Lottery Pool ${pluralize(
                     'ticket',
                     userBalance,
                 )}`}</p>

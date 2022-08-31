@@ -90,7 +90,7 @@ const InputDaiSuffix: React.FC = () => {
     return (
         <React.Fragment>
             <Dai width={22} />
-            <StyledCurrency>DAI</StyledCurrency>
+            <StyledCurrency>USDC</StyledCurrency>
         </React.Fragment>
     );
 };
@@ -194,7 +194,7 @@ const PurchaseTickets: React.FC = (): any => {
             />
             <SubmitButtonContainer>
                 <Button htmlType="submit" type="primary" size="large">
-                    {`Buy ${values.purchase} Aave Pool ${pluralize(
+                    {`Buy ${values.purchase} Lottery Pool ${pluralize(
                         'ticket',
                         Number(values.purchase),
                     )}`}

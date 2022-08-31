@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Button
+    Button, Flex, Box, Icon
 } from "@chakra-ui/react";
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useWeb3React } from '@web3-react/core';
@@ -15,6 +15,124 @@ import { Web3Provider } from '@ethersproject/providers';
 
 
 const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
+
+    const NetworkButton = ()=> (
+        <Box
+          margin={2}
+          display={{
+            base: "none",
+            md: "flex",
+          }}
+          alignItems="center"
+          aria-label="Sponsor Choc UI on Open Collective"
+          bg="brand"
+          borderWidth="1px"
+          borderColor="gray.200"
+          px="1em"
+          minH="36px"
+          rounded="md"
+          fontSize="sm"
+          color="white"
+          outline="0"
+          transition="all 0.3s"
+          _hover={{
+            bg: "brand",
+            borderColor: "gray.300",
+          }}
+          _active={{
+            borderColor: "gray.200",
+          }}
+          _focus={{
+            boxShadow: "outline",
+          }}
+          
+        >
+          <Icon w="4" h="4" color="red.500" mr="2" />
+          <Box as="strong" lineHeight="inherit" fontWeight="semibold">
+            {chainId && <span>{NETWORK_CHAIN_ID[chainId]}</span>}
+          </Box>
+        </Box>
+      );
+    const AddressButton = ()=> (
+        <Box
+        
+          margin={2}
+          display={{
+            base: "none",
+            md: "flex",
+          }}
+          alignItems="center"
+          aria-label="Sponsor Choc UI on Open Collective"
+          bg="brand"
+          borderWidth="1px"
+          borderColor="gray.200"
+          px="1em"
+          minH="36px"
+          rounded="md"
+          fontSize="sm"
+          color="white"
+          outline="0"
+          transition="all 0.3s"
+          _hover={{
+            bg: "brand",
+            borderColor: "gray.300",
+          }}
+          _active={{
+            borderColor: "gray.200",
+          }}
+          _focus={{
+            boxShadow: "outline",
+          }}
+          
+        >
+          <Box as="strong" lineHeight="inherit" fontWeight="semibold">
+          {account &&
+                        account.substr(0, 6) +
+                            '...' +
+                            account.substr(account.length - 4, account.length)}
+          </Box>
+        </Box>
+      );
+    const BalanceButton = ()=> (
+        <Box
+          margin={2}
+          display={{
+            base: "none",
+            md: "flex",
+          }}
+          alignItems="center"
+          aria-label="Sponsor Choc UI on Open Collective"
+          bg="brand"
+          borderWidth="1px"
+          borderColor="gray.200"
+          px="1em"
+          minH="36px"
+          rounded="md"
+          fontSize="sm"
+          color="white"
+          outline="0"
+          transition="all 0.3s"
+          _hover={{
+            bg: "brand",
+            borderColor: "gray.300",
+          }}
+          _active={{
+            borderColor: "gray.200",
+          }}
+          _focus={{
+            boxShadow: "outline",
+          }}
+          
+        >
+          <Box as="strong" lineHeight="inherit" fontWeight="semibold">
+          <p className="no-margin">{`${userBalance.toFixed(2)} Lottery ${pluralize(
+                    'Ticket',
+                    userBalance,
+                )}`}</p>
+          </Box>
+        </Box>
+      );
+
     const {
         account,
         active: walletConnected,
@@ -51,27 +169,16 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
     }, [account, chainId, library, transactionCompleted, walletConnected]);
 
     return walletConnected ? (
-        <div>
-            <div className="inline-block margin-right-double vertical-align-middle">
-                <p className="ellipsis no-margin">
-                    {account &&
-                        account.substr(0, 6) +
-                            '...' +
-                            account.substr(account.length - 4, account.length)}
-                </p>
-                <p className="no-margin">
-                    {walletProvider && (
-                        <span className="margin-right">{getWalletName(walletProvider)}</span>
-                    )}
-                    {chainId && <span>{NETWORK_CHAIN_ID[chainId]}</span>}
-                </p>
-                <p className="no-margin">{`You have ${userBalance.toFixed(2)} Aave Pool ${pluralize(
-                    'ticket',
-                    userBalance,
-                )}`}</p>
-            </div>
+        <Flex>
+            
+                
+                    <AddressButton />
+                    <NetworkButton />
+                    <BalanceButton />
+
+            
             <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} />
-            </div>
+            </Flex>
     ) : (
             <Button  
                 h="50px"
