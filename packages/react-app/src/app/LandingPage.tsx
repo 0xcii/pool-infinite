@@ -159,7 +159,7 @@ export default function PandingPage(){
                 color="gray.100"
                 _dark={{ color: "gray.300" }}
             >
-                Pool Infinite is the largest Saving protocol in Web 3 based on Credentials, Crowfunding and Yield Model. 
+                Pool Infinite is a saving to win protocol, enabling users to win without any loss as well as the biggest decentralized NFT Lottery Platform dedicated to Web 3.
             </chakra.p>
             <Stack
                 direction={{ base: "column", sm: "row" }}
