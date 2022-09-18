@@ -48,6 +48,7 @@ export default function PandingPage(){
         p={2}
         pb={4}
         m={2}
+        w="100%"
         
         spacing={3}
         rounded="sm"
@@ -73,26 +74,24 @@ export default function PandingPage(){
         w="full"
         overflowY="hidden"
     >
-    <chakra.div mt={6} h="4.5rem" mx="auto" maxW="1200px">
-        <Flex w="full" h="full" px="6" align="center" justify="space-between">
+    <chakra.div mt={10} h="4.5rem" mx="auto" w="1200px" maxW="1439px">
+        <Flex  h="full" px="6" align="center" justify="space-between">
             <Flex align="center">
                 <Link as={ReachLink} to="/">
-            <HStack ml={-6}>
-                <Image  src={logoPng} alt='Logo' />
-            </HStack>
+                <HStack>
+                    <Image  src={logoPng} alt='Logo' />
+                </HStack>
             </Link>
         </Flex>
 
         <Flex
             justify="flex-end"
             w="full"
-            maxW="824px"
             align="center"
             color="gray.400"
         >
         <HStack
             spacing={5}
-            mr={-6}
             color="white"
             display={{
                 base: "none",
@@ -129,33 +128,28 @@ export default function PandingPage(){
         <Flex
             direction={{ base: "column", md: "row" }}
             _light={{ bg: "brand.700" }}
-            px={10}
-            py={150}
+            mt="60px"
             mx="auto"
+            w="1150px" maxW="1439px"
         >
         <Box
-            
-            w={{ base: "full", md: 2 / 12, xl: 7 / 12 }}
             mx="auto"
-            pr={{ md: 20 }}
-            ml={20}
+            w="600px"
         >
             <chakra.h2
                 fontSize={{ base: "3xl", sm: "4xl" }}
                 fontWeight="extrabold"
                 lineHeight="shorter"
                 color="white"
-                _dark={{ color: "gray.100" }}
-                mb={6}
+                mb={10}
                 >
                 <Image 
                 src={savePng} alt='Save To Win' />
             </chakra.h2>
             <chakra.p
-                mb={6}
+                mb={10}
                 fontSize={{ base: "lg", md: "xl" }}
                 color="gray.100"
-                _dark={{ color: "gray.300" }}
             >
                 Pool Infinite is a saving to win protocol, enabling users to win without any loss as well as the biggest decentralized NFT Lottery Platform dedicated to Web 3.
             </chakra.p>
@@ -164,14 +158,14 @@ export default function PandingPage(){
                 mb={{ base: 4, md: 8 }}
                 spacing={2}
             >
-            <Box mt="10" w='400px'  color='white'>
+            <Box color='white'>
                 <Link  href="/app">
                     <Image w='100%' h="80px" src={startPng} alt='Start To Win' />
                 </Link>
             </Box>
             </Stack>
             </Box>
-            <Box mr={20} mt="-10" textAlign="center">
+            <Box textAlign="center">
                 <Image
                     w='400'
                     h="350px"
@@ -182,7 +176,7 @@ export default function PandingPage(){
         );
 
     return ( 
-    <Box pos="relative" bg="#0B0D21" h="100%">
+    <Box pos="relative" bg="#0B0D21" h="100%" maxW="full">
         {Header}
 
         {Content}
