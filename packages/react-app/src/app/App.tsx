@@ -64,7 +64,7 @@ const App: React.FC = () => {
                 component={RenderWithdrawModal}
                 isOpen={withdrawModalIsOpen}
                 toggleModal={toggleWithdrawModal}
-                title="Weekly Aave Pool: Withdraw Tickets"
+                title="Weekly Lottery Pool: Withdraw Tickets"
             />
             <GlobalStyle />
         </StyledApp>

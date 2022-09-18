@@ -10,13 +10,10 @@ import {
     Link,
     VStack,
     chakra,
-    useColorMode,
-    useColorModeValue,
     useDisclosure,
     Image, Stack 
 } from "@chakra-ui/react";
 import { useViewportScroll } from "framer-motion";
-import { FaMoon, FaSun } from "react-icons/fa";
 import {
     AiFillHome,
     AiOutlineMenu,
@@ -185,7 +182,7 @@ export default function PandingPage(){
         );
 
     return ( 
-    <Box pos="relative" bg="#0B0D21">
+    <Box pos="relative" bg="#0B0D21" h="100%">
         {Header}
 
         {Content}
