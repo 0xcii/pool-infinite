@@ -24,6 +24,13 @@ import appPng from '../images/app.png';
 import savePng from '../images/savetowin.png';
 import startPng from '../images/start.png';
 import rightPng from '../images/right.png';
+import topWinner from '../images/topwin.png';
+import win1 from '../images/winner1.png';
+import win2 from '../images/winner2.png';
+import win3 from '../images/winner3.png';
+import win4 from '../images/winner4.png';
+import win5 from '../images/winner5.png';
+import win6 from '../images/winner6.png';
 
 export default function PandingPage(){
     const mobileNav = useDisclosure();
@@ -175,11 +182,93 @@ export default function PandingPage(){
         </Flex>
         );
 
+    const WinnerCard =  (props:any) => {
+        const { userInfo } = props;
+        return (
+        <Flex direction={{ base: "column", md: "row" }} mx="auto">
+            <Image w='100%' mr="8px" src={userInfo.img} alt='Start To Win' />
+            <Box>
+                <Box color="white" w="full">
+                    {userInfo.name}
+                </Box>
+                <Box color="rgba(94, 234, 212, 1)" w="full">
+                        {userInfo.balance}
+                </Box>
+            </Box>
+        </Flex>
+        
+        )
+    };
+    const users = [
+        {
+            "name":"@dicar",
+            "balance": "19.5ETH",
+            "img": win1,
+        },
+        {
+            "name": "@astroo2",
+            "balance": "15ETH",
+            "img": win2,
+        },
+        {
+            "name": "@micle",
+            "balance": "10ETH",
+            "img": win3,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65ETH",
+            "img": win4,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65ETH",
+            "img": win5,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65ETH",
+            "img": win6,
+        }
+    ]
+        
+    const Footer = (
+        <Box w="full" maxW="1439px">
+            <Flex 
+                direction={{ base: "column", md: "row" }}
+                _light={{ bg: "brand.700" }}
+                mt="30px"
+                mx="auto"
+                w="95%" maxW="1439px"
+                >
+            <chakra.h2
+                fontSize={{ base: "3xl", sm: "4xl" }}
+                fontWeight="extrabold"
+                lineHeight="shorter"
+                color="white"
+                mb={5}
+                >
+                <Image 
+                src={topWinner} alt='Save To Win' />
+            </chakra.h2>
+        </Flex>
+            <Flex>
+                
+                {users.map((userInfo) =>
+                    <WinnerCard userInfo={userInfo} />
+                )}
+            </Flex>
+        </Box>
+        
+    )
+
     return ( 
-    <Box pos="relative" bg="#0B0D21" h="100%" maxW="full">
+    <Box pos="relative" bg="#0B0D21" h="120%" maxW="full">
         {Header}
 
         {Content}
+
+        {Footer}
 
 
     </Box>)
