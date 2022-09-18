@@ -46,6 +46,9 @@ import { useEffect } from 'react';
             bg: "gray.100",
             _dark: { bg: "gray.900" },
             color: "gray.900",
+            borderRightStyle: "solid",
+            borderRightColor: "rgb(236,0,140)",
+            borderRightWidth: "3px",
           }}
           role="group"
           fontWeight="semibold"
@@ -78,14 +81,15 @@ import { useEffect } from 'react';
         pb="10"
         overflowX="hidden"
         overflowY="auto"
-        bg= "#232966"
+        bg= "#171a3f"
         border
         color="inherit"
         borderRightWidth="1px"
-        w="24"
+        fontSize="14px"
+        w="72px"
         {...props}
       >
-        <Flex px="6" py="5" align="center">
+        <Flex px="5" py="5" align="center">
           <Link href={`/`}>
               <Image  src={ico} alt='ico' />
           </Link>
@@ -93,12 +97,11 @@ import { useEffect } from 'react';
         <Flex
           direction="column"
           as="nav"
-          fontSize="sm"
         >
           <NavItem direction="column" >
           <Link style={{ display: "block" }} href={`/allpools`}>
               <Image ml={1.5} src={pools} alt='pools' />
-              All Pools
+                AllPools
             </Link>
           </NavItem>
         <NavItem direction="column" onClick={() =>
@@ -128,7 +131,7 @@ import { useEffect } from 'react';
                 }>
             {/* <Link style={{ display: "block" }} href={`/mypool`}> */}
             <Image mb={2} src={my} alt='my' />
-                My Pool
+                MyPool
             {/* </Link> */}
             </NavItem>
         <NavItem mb={10} direction="column" onClick={() =>
