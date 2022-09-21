@@ -15,7 +15,8 @@ import { Web3Provider } from '@ethersproject/providers';
 import balanceBG from '../../images/balance.png';
 import profileImage from '../../images/profileLogo.png';
 import connectBG from '../../images/connectButton.png';
-
+import networkBG from '../../images/network.png';
+import acBG from '../../images/ac.png';
 
 const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
 
@@ -182,11 +183,10 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
         <Flex>
             
                 
-                    <AddressButton />
-                    <NetworkButton />
-                    {/* <BalanceButton /> */}
+            <AddressButton />
+            <NetworkButton />
+            {/* <BalanceButton /> */}
 
-            
             {/* <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} /> */}
             </Flex>
     ) : (
@@ -207,13 +207,15 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
               Connect
           </Box>
           <Box  
-            h = "60px"
-            w = "141px"
-            background="linear-gradient(179.07deg, rgba(22, 26, 66, 1) 0%, rgba(22, 26, 66, 0) 100%)"
-            border= "2dp solid"
-            borderRadius= "16dp"
+            h = "42px"
+            w = "85px"
+            marginTop = "12px"
+            marginLeft = "10px"
+            backgroundPosition="top"
+            backgroundRepeat="no-repeat"
+            bgImage= {networkBG}
             textAlign= "center"
-            lineHeight="60px"
+            lineHeight="42px"
             fontSize="18dp"
             fontWeight="bold"
             color="rgba(42, 130, 228, 1)"
@@ -221,6 +223,7 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
             >
               Polygon
           </Box>
+          <Image h="24px" marginTop = "18px" src={acBG} alt='acBG' />
       </Flex>
 
             
