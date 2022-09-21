@@ -14,6 +14,8 @@ import { getUserTicketsBalance } from 'helpers/Pool';
 import { Web3Provider } from '@ethersproject/providers';
 import balanceBG from '../../images/balance.png';
 import profileImage from '../../images/profileLogo.png';
+import connectBG from '../../images/connectButton.png';
+
 
 const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
 
@@ -27,7 +29,6 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
             md: "flex",
           }}
           alignItems="center"
-          aria-label="Sponsor Choc UI on Open Collective"
           // bg="brand"
           // borderWidth="1px"
           // borderColor="gray.200"
@@ -43,12 +44,12 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
           //   bg: "brand",
           //   borderColor: "gray.300",
           // }}
-          _active={{
-            borderColor: "gray.200",
-          }}
-          _focus={{
-            boxShadow: "outline",
-          }}
+          // _active={{
+          //   borderColor: "gray.200",
+          // }}
+          // _focus={{
+          //   boxShadow: "outline",
+          // }}
           
         >
           <Box  as="strong" lineHeight="inherit" fontWeight="semibold">
@@ -58,7 +59,6 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
       );
     const AddressButton = ()=> (
         <Box
-        
           margin={2}
           display={{
             base: "none",
@@ -190,17 +190,40 @@ const ToggleWalletModalButton = ({ toggleWalletModal  }): any => {
             {/* <CloseCircleOutlined onClick={disconnectWallet} style={{ fontSize: '16px' }} /> */}
             </Flex>
     ) : (
-            <Button  
-                h="50px"
-                w="130px"
-                bgColor="#161A42"
-                color="white"
-                colorScheme="brand"
-                cursor="pointer"
-                variant='outline'
-                onClick={toggleWalletModal}>
-                    Connect
-            </Button>
+      <Flex>
+        <Box  
+            h = "60px"
+            w = "141px"
+            backgroundPosition="top"
+            backgroundRepeat="no-repeat"
+            bgImage= {connectBG}
+            textAlign= "center"
+            lineHeight="60px"
+            fontSize="18dp"
+            fontWeight="bold"
+            color="white"
+            onClick={toggleWalletModal}
+            >
+              Connect
+          </Box>
+          <Box  
+            h = "60px"
+            w = "141px"
+            background="linear-gradient(179.07deg, rgba(22, 26, 66, 1) 0%, rgba(22, 26, 66, 0) 100%)"
+            border= "2dp solid"
+            borderRadius= "16dp"
+            textAlign= "center"
+            lineHeight="60px"
+            fontSize="18dp"
+            fontWeight="bold"
+            color="rgba(42, 130, 228, 1)"
+            // onClick={toggleWalletModal}
+            >
+              Polygon
+          </Box>
+      </Flex>
+
+            
     );
 };
 
