@@ -12,19 +12,20 @@ import {
 import deposit from '../images/deposit.png';
 import cardBG from '../images/card_bg.gif';
 import cardBG2 from '../images/card_bg2.gif';
+import Footer from "../components/Footer";
 
 
 export default function Pools(){
 
   return (
-    <Box ml={{ base: 0, md: 60 }} mr={{ base: 0, md: 80 }}>
+    <Box ml={{ base: 0, md: 40 }} mr={{ base: 0, md: 80 }}>
     <Box as="main" p="4">
     <Box>
-      <Text mb={2} ml={-14}
+      <Text 
             fontSize="2xl"
             fontWeight={["bold", "extrabold"]}
-            _dark={{ color: "gray.50" }}
-            lineHeight="tight"> All Pools</Text>
+          
+            > All Pools</Text>
     <Flex
       boxSize="full"
       alignItems="center"
@@ -41,15 +42,16 @@ export default function Pools(){
           <Box>
             <SimpleGrid
               columns={[1, , 2]}
-              gap="24px"
-              rounded="md"
+              // gap="24px"
+              // rounded="md"
               textAlign="center"
             >
               <Box
                 bg="gray.50"
                 // _dark={{ bg: "gray.900" }}
-                pt={5}
-                h={280}
+                pt={1}
+                h="180px"
+                w="49 0px"
                 shadow="lg"
                 rounded="md"
                 bgImage= {cardBG}
@@ -126,7 +128,8 @@ export default function Pools(){
                 bg="gray.50"
                 // _dark={{ bg: "gray.900" }}
                 pt={5}
-                h={280}
+                h="180px"
+                w="49 0px"
                 shadow="lg"
                 rounded="md"
                 bgImage= {cardBG}
@@ -202,7 +205,8 @@ export default function Pools(){
                 bg="gray.50"
                 // _dark={{ bg: "gray.900" }}
                 pt={5}
-                h={280}
+                h="180px"
+                w="49 0px"
                 shadow="lg"
                 rounded="md"
                 bgImage= {cardBG2}
@@ -278,7 +282,8 @@ export default function Pools(){
                 bg="gray.50"
                 // _dark={{ bg: "gray.900" }}
                 pt={5}
-                h={280}
+                h="180px"
+                w="49 0px"
                 shadow="lg"
                 rounded="md"
                 bgImage= {cardBG2}
@@ -356,9 +361,13 @@ export default function Pools(){
         </Box>
       </Box>
     </Flex>
+    
+    <Footer />
     </Box>
     </Box>
     </Box>
   );
 };
+
+
 

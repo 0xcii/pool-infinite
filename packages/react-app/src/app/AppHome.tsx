@@ -25,7 +25,7 @@ import { useToast } from '@chakra-ui/react';
 import { useEffect } from 'react';
 
   export default function AppHome(props:any){
-    const { Content  } = props;
+    const {   Content  } = props;
     const toast = useToast()
 
     const color = useColorModeValue("gray.600", "gray.300");
@@ -76,7 +76,7 @@ import { useEffect } from 'react';
         as="nav"
         pos="fixed"
         top="10"
-        left="10"
+        left="4"
         zIndex="sticky"
         pb="10"
         overflowX="hidden"
@@ -101,7 +101,7 @@ import { useEffect } from 'react';
           <NavItem direction="column" >
           <Link style={{ display: "block" }} href={`/allpools`}>
               <Image ml={1.5} src={pools} alt='pools' />
-                AllPools
+                AllPools  
             </Link>
           </NavItem>
         <NavItem direction="column" onClick={() =>

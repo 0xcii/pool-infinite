@@ -222,12 +222,12 @@ export default function PandingPage(){
         },
         {
             "name": "@11erorD",
-            "balance": "5.65ETH",
+            "balance": "5.65 ETH",
             "img": win5,
         },
         {
             "name": "@11erorD",
-            "balance": "5.65ETH",
+            "balance": "5.65 ETH",
             "img": win6,
         }
     ]

@@ -20,7 +20,7 @@ export default function AppHeader({ toggleWalletModal }){
         w="full"
         overflowY="hidden">
         <chakra.div mt={8} h="4.5rem" mx="auto" maxW="1200px">
-        <Flex w="1040px" h="66px" px="10" align="center" justify="space-between">
+        <Flex w="1034px" h="66px" px="10" align="center" justify="space-between">
             <HStack>
                 <Image h="14" w="full" src={logoPng} alt='Logo' />
             </HStack>
