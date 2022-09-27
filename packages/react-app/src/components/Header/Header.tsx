@@ -94,4 +94,5 @@ const Header: React.FC<HeaderProps> = ({ toggleWalletModal }) => {
     );
 };
 
+
 export default Header;

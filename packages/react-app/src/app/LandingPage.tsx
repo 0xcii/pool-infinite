@@ -150,8 +150,7 @@ export default function PandingPage(){
                 color="white"
                 mb={10}
                 >
-                <Image 
-                src={savePng} alt='Save To Win' />
+                <Image src={savePng} alt='Save To Win' />
             </chakra.h2>
             <chakra.p
                 mb={10}
@@ -165,7 +164,7 @@ export default function PandingPage(){
                 mb={{ base: 4, md: 8 }}
                 spacing={2}
             >
-            <Box color='white'>
+            <Box color='white' ml="-10px">
                 <Link  href="/app">
                     <Image w='100%' h="80px" src={startPng} alt='Start To Win' />
                 </Link>
@@ -185,17 +184,20 @@ export default function PandingPage(){
     const WinnerCard =  (props:any) => {
         const { userInfo } = props;
         return (
-        <Flex direction={{ base: "column", md: "row" }} mx="auto">
-            <Image w='100%' mr="8px" src={userInfo.img} alt='Start To Win' />
-            <Box>
-                <Box color="white" w="full">
-                    {userInfo.name}
-                </Box>
-                <Box color="rgba(94, 234, 212, 1)" w="full">
-                        {userInfo.balance}
-                </Box>
+            <Box w="221px" display="block" mr="150px">
+                <Flex  direction={{ base: "column", md: "row" }} mx="auto">
+                    <Image w='100%' mr="8px" src={userInfo.img} alt='Start To Win' />
+                    <Box>
+                        <Box color="white" w="full">
+                            {userInfo.name}
+                        </Box>
+                        <Box color="rgba(94, 234, 212, 1)" w="full">
+                                {userInfo.balance}
+                        </Box>
+                    </Box>
+                </Flex>
             </Box>
-        </Flex>
+
         
         )
     };
@@ -204,6 +206,36 @@ export default function PandingPage(){
             "name":"@dicar",
             "balance": "19.5ETH",
             "img": win1,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65 ETH",
+            "img": win5,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65 ETH",
+            "img": win6,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65ETH",
+            "img": win4,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65ETH",
+            "img": win4,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65 ETH",
+            "img": win6,
+        },
+        {
+            "name": "@11erorD",
+            "balance": "5.65 ETH",
+            "img": win5,
         },
         {
             "name": "@astroo2",
@@ -217,6 +249,11 @@ export default function PandingPage(){
         },
         {
             "name": "@11erorD",
+            "balance": "5.65 ETH",
+            "img": win6,
+        },
+        {
+            "name": "@11erorD",
             "balance": "5.65ETH",
             "img": win4,
         },
@@ -224,11 +261,6 @@ export default function PandingPage(){
             "name": "@11erorD",
             "balance": "5.65 ETH",
             "img": win5,
-        },
-        {
-            "name": "@11erorD",
-            "balance": "5.65 ETH",
-            "img": win6,
         }
     ]
         
@@ -236,7 +268,6 @@ export default function PandingPage(){
         <Box w="full" maxW="1439px">
             <Flex 
                 direction={{ base: "column", md: "row" }}
-                _light={{ bg: "brand.700" }}
                 mt="30px"
                 mx="auto"
                 w="95%" maxW="1439px"
@@ -249,11 +280,29 @@ export default function PandingPage(){
                 mb={5}
                 >
                 <Image 
-                src={topWinner} alt='Save To Win' />
+                src={topWinner} alt='Top To Win' />
             </chakra.h2>
         </Flex>
-            <Flex>
-                
+            <Flex 
+            css={{
+                "&::-webkit-scrollbar": {
+                    width: "1px",
+                    height: "4px",
+                },
+                "&::-webkit-scrollbar-track": {
+                    width: "6px",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                    background: "rgb(109,213,237)",
+                    borderRadius: "24px",
+                    width: "6px",
+                },
+                }}
+            w = "90%"
+            ml ="30px"
+            p = "3px"
+            overflowX="scroll"
+            overflowY="hidden">
                 {users.map((userInfo) =>
                     <WinnerCard userInfo={userInfo} />
                 )}
@@ -269,7 +318,5 @@ export default function PandingPage(){
         {Content}
 
         {Footer}
-
-
     </Box>)
 }
