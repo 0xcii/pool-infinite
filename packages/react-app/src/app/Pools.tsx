@@ -19,11 +19,10 @@ import Footer from "../components/Footer";
 export default function Pools(){
 
   return (
-    <Box mt="-30px" ml={{md: 20 }} mr={{ md: 80 }}>
+    <Box mt="-30px" ml="110px" mr={{ md: 80 }}>
     <Box  as="main" p="12">
       <Box>
         <Text mb="20px" fontSize="18px" fontWeight={["bold", "extrabold"]}> All Pools</Text>
- 
     <Flex
       boxSize="full"
       // alignItems="center"
@@ -109,9 +108,6 @@ export default function Pools(){
                       justifyContent="center"
                       fontWeight="semibold"
                       rounded="md"
-                      _light={{ color: "white" }}
-                      bg="gray.800"
-                      _dark={{ bg: "brand.500" }}
                       _hover={{
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
@@ -191,9 +187,6 @@ export default function Pools(){
                       justifyContent="center"
                       fontWeight="semibold"
                       rounded="md"
-                      _light={{ color: "white" }}
-                      bg="gray.800"
-                      _dark={{ bg: "brand.500" }}
                       _hover={{
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
@@ -273,9 +266,6 @@ export default function Pools(){
                       justifyContent="center"
                       fontWeight="semibold"
                       rounded="md"
-                      _light={{ color: "white" }}
-                      bg="gray.800"
-                      _dark={{ bg: "brand.500" }}
                       _hover={{
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },
@@ -354,9 +344,6 @@ export default function Pools(){
                       justifyContent="center"
                       fontWeight="semibold"
                       rounded="md"
-                      _light={{ color: "white" }}
-                      bg="gray.800"
-                      _dark={{ bg: "brand.500" }}
                       _hover={{
                         bg: "gray.700",
                         _dark: { bg: "brand.600" },

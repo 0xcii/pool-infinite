@@ -13,6 +13,7 @@ import my from '../images/my.png';
 import setting from '../images/setting.png';
 import winners from '../images/winners.png';
 import sidebarPng from '../images/sidebar.png';
+import profilePng from '../images/profileBG.png'; 
 import logout from '../images/logout.png';
 import AppHeader from './AppHeader';
 import Modal, { useModal } from 'components/Modal';
@@ -162,13 +163,20 @@ import { useEffect } from 'react';
     const SidebarRight = (props:any) => (
       <Box 
       w='260px'
+      h='659px'
       as="nav"
       overflowX="hidden"
       overflowY="auto"
       pos="fixed"
       top="10"
       right="10">
+        <Box w="100%" h='600px' 
+        backgroundSize="contain" 
+        backgroundRepeat="no-repeat"
+        bgImage={profilePng}>
           <Image src={sidebarPng} alt='sidebar' />
+        </Box>
+          
       </Box>
     
     
