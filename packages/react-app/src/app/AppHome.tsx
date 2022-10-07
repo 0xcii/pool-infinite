@@ -4,6 +4,7 @@ import {
     Flex,
     Icon,
     Link,
+    Text,
     useColorModeValue,
   } from "@chakra-ui/react";
 import React from "react";
@@ -14,7 +15,14 @@ import setting from '../images/setting.png';
 import winners from '../images/winners.png';
 import sidebarPng from '../images/sidebar.png';
 import profilePng from '../images/profileBG.png'; 
+import myProfile from '../images/MyProfile.png';
+import profileUser from '../images/profileUser.png';
 import logout from '../images/logout.png';
+import Avatar from '../images/Avatar.png';
+import WithdrawUSDC from '../images/widrawUSDC.png';
+import CurrentPool from '../images/currentPool.png';
+import PoolLogo from '../images/poolLogo.png';
+import USDCLogo from '../images/usdcLogo.png';
 import AppHeader from './AppHeader';
 import Modal, { useModal } from 'components/Modal';
 import { Web3Provider } from '@ethersproject/providers';
@@ -24,6 +32,7 @@ import RenderWalletModal from 'components/Modal/RenderWallet';
 import RenderWithdrawModal from 'components/Modal/RenderWithdraw';
 import { useToast } from '@chakra-ui/react';
 import { useEffect } from 'react';
+
 
   export default function AppHome(props:any){
     const {   Content  } = props;
@@ -163,18 +172,61 @@ import { useEffect } from 'react';
     const SidebarRight = (props:any) => (
       <Box 
       w='260px'
-      h='659px'
+      h='600px'
       as="nav"
       overflowX="hidden"
       overflowY="auto"
       pos="fixed"
       top="10"
       right="10">
-        <Box w="100%" h='600px' 
+        <Box w="98%" h='600px' 
         backgroundSize="contain" 
         backgroundRepeat="no-repeat"
         bgImage={profilePng}>
-          <Image src={sidebarPng} alt='sidebar' />
+          <Box w="100%" pt="25px" h='300px' 
+            alignContent="center"
+            backgroundSize="contain" 
+            backgroundRepeat="no-repeat"
+            bgImage={profileUser}>
+          <Image h='30px' m="0 auto" src={myProfile} alt='myProfile' />
+          <Image h='80px' m="20px auto 10px auto" src={Avatar} alt='Avatar' />
+          <Box fontSize="20px" fontWeight="600" textAlign="center">Level-1</Box>
+          <Box fontSize="16px" fontWeight="700"
+          textAlign="left" ml="15px" mt="40px">Your Reward</Box>
+
+          <Flex _hover={{
+                        bg: "gray.700",
+                        _dark: { bg: "brand.600" },
+                      }} 
+          borderRadius = "10px"
+          backgroundSize="contain" 
+          backgroundRepeat="no-repeat"
+          w='80%'
+          h='40px' m="20px auto 60px auto" bgImage={WithdrawUSDC}>
+              <Image ml="10px" mt="10px" h="50%" src={USDCLogo} alt='USDCLogo' />
+              <Text ml="10px" mt="10px" fontSize="12px" fontWeight="bold">100 USDC</Text>
+              <Text ml="10px" mt="10px" fontSize="12px">Withdraw {'>'}</Text>
+          </Flex>
+
+
+          <Box fontSize="16px" fontWeight="700"
+          textAlign="left" ml="15px">Current Pool</Box>
+          <Flex
+          borderRadius = "10px"
+          h="80px" w='90%' m="20px auto 10px auto" bgImage={CurrentPool}>
+            <Image w="50px" h="50px" ml="10px" mt="15px" src={PoolLogo} alt='PoolLogo' />
+            
+            <Box color="rgba(147, 197, 253, 1)" mt="15px" ml="15px">
+              <Text color="white" fontSize="8px" fontWeight="bold">Non-Risk Pool 1</Text>
+              <Text fontSize="12px">May get: 100 USDC</Text>
+              <Text fontSize="12px">18h:17m:29s</Text>
+            </Box>
+            
+          </Flex>
+
+        </Box>
+      
+          {/* <Image src={sidebarPng} alt='sidebar' /> */}
         </Box>
           
       </Box>

@@ -197,8 +197,6 @@ export default function PandingPage(){
                     </Box>
                 </Flex>
             </Box>
-
-        
         )
     };
     const users = [

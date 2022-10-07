@@ -362,13 +362,14 @@ export default function Pools(){
           </Box>
         </Box>
       </Box>
+      
     </Flex>
     
     
     </Box>
     <Footer />
     </Box>
-   
+    
     </Box>
   );
 };
