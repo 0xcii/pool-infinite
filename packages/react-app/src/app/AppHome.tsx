@@ -244,7 +244,7 @@ import { useEffect } from 'react';
     }, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
     
     return (
-      <Box as="section" bg="#0B0D21" >
+      <Box h="100%" as="section" bg="#0B0D21" >
         <SidebarContent display={{ base: "none", md: "unset" }} />
         <AppHeader toggleWalletModal={toggleWalletModal} />
         <Content 

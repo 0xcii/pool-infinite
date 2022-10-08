@@ -79,7 +79,7 @@ const StyledModal = styled(Modal)`
     &__content {
         background-color: ${blue[0]};
         border-radius: ${borderRadius};
-        max-width: ${rem(920)};
+        max-width: ${rem(420)};
         position: relative;
         width: 100%;
 

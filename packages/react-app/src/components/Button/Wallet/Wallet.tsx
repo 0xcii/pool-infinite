@@ -24,7 +24,7 @@ const StyledButton = styled(Button)`
     border: none;
     color: white;
     height: auto;
-    padding: ${spacingUnit(2)};
+    padding: ${spacingUnit(3)};
 
     &:active,
     &:focus,
@@ -86,7 +86,7 @@ const WalletButton: React.FC<WalletButtonProps> = ({
 
     return (
         <StyledButton
-            icon={React.cloneElement(logo, { fill: 'white' })}
+            // icon={React.cloneElement(logo, { fill: 'white' })}
             onClick={handleClick}
             loading={showSpinner}
         >
