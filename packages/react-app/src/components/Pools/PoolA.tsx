@@ -17,6 +17,8 @@ import poolBG from '../../images/poolBG.png';
 import poolBG2 from '../../images/poolBG2.png';
 import inputNB from '../../images/inputNB.png';
 import stake from '../../images/stake.png';
+import Footer from "../../components/Footer";
+
 
 momentDurationFormatSetup(moment);
 
@@ -193,7 +195,11 @@ return (
         </chakra.p>
         </Box>
   </Box> 
+  
 </Flex>
+      </Box>
+      <Box ml="300px" w="65%">
+        <Footer/>
       </Box>
     </Box>
   );
