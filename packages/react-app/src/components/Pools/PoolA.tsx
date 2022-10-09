@@ -91,8 +91,8 @@ const handleWithdrawFromAavePool = () => {
 };
 
 return (
-    <Box ml="-200px" mt="150px">
-        <Box   textAlign={"left" } mx="auto" >
+    <Box ml="-200px" mt="80px">
+        <Box   textAlign={"left" } mx="auto"  mb="100px">
         <Flex  w="full" alignItems="center" justifyContent="center">
             <Box backgroundSize="contain" 
                 backgroundRepeat="no-repeat"
